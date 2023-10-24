@@ -1,10 +1,345 @@
-# anvi'o
+# anvi'o (https://anvio.org/install/macos/stable/)
 
-## miniconda installation
+## (1) Things you need before you start - miniconda installation
 
-mkdir -p ~/miniconda3
-curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
-bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-rm -rf ~/miniconda3/miniconda.sh
+$ mkdir -p ~/miniconda3
+$ curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
+$ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+$ rm -rf ~/miniconda3/miniconda.sh
+
+
+## (2) set up conda
+$ conda --version
+conda 23.9.0
+
+$ conda update conda
+
+
+## (3) Setup an anvi’o environment
+$ conda config --env --set subdir osx-64
+
+$ conda create -y --name anvio-8 python=3.10
+$ conda activate anvio-8
+$ conda install -y -c conda-forge mamba
+
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /Users/foodlab/miniconda3/envs/anvio-8
+
+  added / updated specs:
+    - mamba
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    boltons-23.0.0             |     pyhd8ed1ab_0         296 KB  conda-forge
+    brotli-python-1.1.0        |  py310h9e9d8ca_1         358 KB  conda-forge
+    c-ares-1.20.1              |       h10d778d_1         101 KB  conda-forge
+    ca-certificates-2023.7.22  |       h8857fd0_0         146 KB  conda-forge
+    certifi-2023.7.22          |     pyhd8ed1ab_0         150 KB  conda-forge
+    cffi-1.16.0                |  py310hdca579f_0         224 KB  conda-forge
+    charset-normalizer-3.3.1   |     pyhd8ed1ab_0          45 KB  conda-forge
+    colorama-0.4.6             |     pyhd8ed1ab_0          25 KB  conda-forge
+    conda-23.9.0               |  py310h2ec42d9_0         947 KB  conda-forge
+    conda-package-handling-2.2.0|     pyh38be061_0         249 KB  conda-forge
+    conda-package-streaming-0.9.0|     pyhd8ed1ab_0          19 KB  conda-forge
+    cryptography-41.0.4        |  py310ha1817de_0         1.2 MB  conda-forge
+    fmt-10.1.1                 |       h1c7c39f_0         176 KB  conda-forge
+    icu-73.2                   |       hf5e326d_0        11.2 MB  conda-forge
+    idna-3.4                   |     pyhd8ed1ab_0          55 KB  conda-forge
+    jsonpatch-1.33             |     pyhd8ed1ab_0          17 KB  conda-forge
+    jsonpointer-2.4            |  py310h2ec42d9_3          16 KB  conda-forge
+    krb5-1.21.2                |       hb884880_0         1.1 MB  conda-forge
+    libarchive-3.7.2           |       h0b5dc4a_0         735 KB  conda-forge
+    libcurl-8.4.0              |       h726d00d_0         357 KB  conda-forge
+    libcxx-16.0.6              |       hd57cbcb_0         1.1 MB  conda-forge
+    libedit-3.1.20191231       |       h0678c8f_2         103 KB  conda-forge
+    libev-4.33                 |       haf1e3a3_1          99 KB  conda-forge
+    libiconv-1.17              |       hac89ed1_0         1.3 MB  conda-forge
+    libmamba-1.5.2             |       hb976dfd_0         1.2 MB  conda-forge
+    libmambapy-1.5.2           |  py310hd068509_0         253 KB  conda-forge
+    libnghttp2-1.52.0          |       he2ab024_0         599 KB  conda-forge
+    libsolv-0.7.25             |       h7d26f99_0         407 KB  conda-forge
+    libssh2-1.11.0             |       hd019ec5_0         253 KB  conda-forge
+    libxml2-2.11.5             |       h3346baf_1         609 KB  conda-forge
+    libzlib-1.2.13             |       h8a1eda9_5          58 KB  conda-forge
+    lz4-c-1.9.4                |       hf0c8a7f_0         153 KB  conda-forge
+    lzo-2.10                   |    haf1e3a3_1000         190 KB  conda-forge
+    mamba-1.5.2                |  py310h6bde348_0          51 KB  conda-forge
+    openssl-3.1.3              |       h8a1eda9_0         2.2 MB  conda-forge
+    packaging-23.2             |     pyhd8ed1ab_0          48 KB  conda-forge
+    pluggy-1.3.0               |     pyhd8ed1ab_0          22 KB  conda-forge
+    pybind11-abi-4             |       hd8ed1ab_3          10 KB  conda-forge
+    pycosat-0.6.6              |  py310h6729b98_0          83 KB  conda-forge
+    pycparser-2.21             |     pyhd8ed1ab_0         100 KB  conda-forge
+    pyopenssl-23.2.0           |     pyhd8ed1ab_1         126 KB  conda-forge
+    pysocks-1.7.1              |     pyha2e5f31_6          19 KB  conda-forge
+    python_abi-3.10            |          2_cp310           4 KB  conda-forge
+    reproc-14.2.4.post0        |       h0dc2134_0          29 KB  conda-forge
+    reproc-cpp-14.2.4.post0    |       he965462_0          22 KB  conda-forge
+    requests-2.31.0            |     pyhd8ed1ab_0          55 KB  conda-forge
+    ruamel.yaml-0.17.39        |  py310hb372a2b_0         200 KB  conda-forge
+    ruamel.yaml.clib-0.2.7     |  py310h6729b98_2         116 KB  conda-forge
+    tqdm-4.66.1                |     pyhd8ed1ab_0          87 KB  conda-forge
+    truststore-0.8.0           |     pyhd8ed1ab_0          20 KB  conda-forge
+    urllib3-2.0.7              |     pyhd8ed1ab_0          96 KB  conda-forge
+    yaml-cpp-0.8.0             |       he965462_0         127 KB  conda-forge
+    zlib-1.2.13                |       h8a1eda9_5          89 KB  conda-forge
+    zstandard-0.21.0           |  py310h151724a_1         400 KB  conda-forge
+    zstd-1.5.5                 |       h829000d_0         488 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        28.0 MB
+
+The following NEW packages will be INSTALLED:
+
+  boltons            conda-forge/noarch::boltons-23.0.0-pyhd8ed1ab_0 
+  brotli-python      conda-forge/osx-64::brotli-python-1.1.0-py310h9e9d8ca_1 
+  c-ares             conda-forge/osx-64::c-ares-1.20.1-h10d778d_1 
+  certifi            conda-forge/noarch::certifi-2023.7.22-pyhd8ed1ab_0 
+  cffi               conda-forge/osx-64::cffi-1.16.0-py310hdca579f_0 
+  charset-normalizer conda-forge/noarch::charset-normalizer-3.3.1-pyhd8ed1ab_0 
+  colorama           conda-forge/noarch::colorama-0.4.6-pyhd8ed1ab_0 
+  conda              conda-forge/osx-64::conda-23.9.0-py310h2ec42d9_0 
+  conda-package-han~ conda-forge/noarch::conda-package-handling-2.2.0-pyh38be061_0 
+  conda-package-str~ conda-forge/noarch::conda-package-streaming-0.9.0-pyhd8ed1ab_0 
+  cryptography       conda-forge/osx-64::cryptography-41.0.4-py310ha1817de_0 
+  fmt                conda-forge/osx-64::fmt-10.1.1-h1c7c39f_0 
+  icu                conda-forge/osx-64::icu-73.2-hf5e326d_0 
+  idna               conda-forge/noarch::idna-3.4-pyhd8ed1ab_0 
+  jsonpatch          conda-forge/noarch::jsonpatch-1.33-pyhd8ed1ab_0 
+  jsonpointer        conda-forge/osx-64::jsonpointer-2.4-py310h2ec42d9_3 
+  krb5               conda-forge/osx-64::krb5-1.21.2-hb884880_0 
+  libarchive         conda-forge/osx-64::libarchive-3.7.2-h0b5dc4a_0 
+  libcurl            conda-forge/osx-64::libcurl-8.4.0-h726d00d_0 
+  libcxx             conda-forge/osx-64::libcxx-16.0.6-hd57cbcb_0 
+  libedit            conda-forge/osx-64::libedit-3.1.20191231-h0678c8f_2 
+  libev              conda-forge/osx-64::libev-4.33-haf1e3a3_1 
+  libiconv           conda-forge/osx-64::libiconv-1.17-hac89ed1_0 
+  libmamba           conda-forge/osx-64::libmamba-1.5.2-hb976dfd_0 
+  libmambapy         conda-forge/osx-64::libmambapy-1.5.2-py310hd068509_0 
+  libnghttp2         conda-forge/osx-64::libnghttp2-1.52.0-he2ab024_0 
+  libsolv            conda-forge/osx-64::libsolv-0.7.25-h7d26f99_0 
+  libssh2            conda-forge/osx-64::libssh2-1.11.0-hd019ec5_0 
+  libxml2            conda-forge/osx-64::libxml2-2.11.5-h3346baf_1 
+  libzlib            conda-forge/osx-64::libzlib-1.2.13-h8a1eda9_5 
+  lz4-c              conda-forge/osx-64::lz4-c-1.9.4-hf0c8a7f_0 
+  lzo                conda-forge/osx-64::lzo-2.10-haf1e3a3_1000 
+  mamba              conda-forge/osx-64::mamba-1.5.2-py310h6bde348_0 
+  packaging          conda-forge/noarch::packaging-23.2-pyhd8ed1ab_0 
+  pluggy             conda-forge/noarch::pluggy-1.3.0-pyhd8ed1ab_0 
+  pybind11-abi       conda-forge/noarch::pybind11-abi-4-hd8ed1ab_3 
+  pycosat            conda-forge/osx-64::pycosat-0.6.6-py310h6729b98_0 
+  pycparser          conda-forge/noarch::pycparser-2.21-pyhd8ed1ab_0 
+  pyopenssl          conda-forge/noarch::pyopenssl-23.2.0-pyhd8ed1ab_1 
+  pysocks            conda-forge/noarch::pysocks-1.7.1-pyha2e5f31_6 
+  python_abi         conda-forge/osx-64::python_abi-3.10-2_cp310 
+  reproc             conda-forge/osx-64::reproc-14.2.4.post0-h0dc2134_0 
+  reproc-cpp         conda-forge/osx-64::reproc-cpp-14.2.4.post0-he965462_0 
+  requests           conda-forge/noarch::requests-2.31.0-pyhd8ed1ab_0 
+  ruamel.yaml        conda-forge/osx-64::ruamel.yaml-0.17.39-py310hb372a2b_0 
+  ruamel.yaml.clib   conda-forge/osx-64::ruamel.yaml.clib-0.2.7-py310h6729b98_2 
+  tqdm               conda-forge/noarch::tqdm-4.66.1-pyhd8ed1ab_0 
+  truststore         conda-forge/noarch::truststore-0.8.0-pyhd8ed1ab_0 
+  urllib3            conda-forge/noarch::urllib3-2.0.7-pyhd8ed1ab_0 
+  yaml-cpp           conda-forge/osx-64::yaml-cpp-0.8.0-he965462_0 
+  zstandard          conda-forge/osx-64::zstandard-0.21.0-py310h151724a_1 
+  zstd               conda-forge/osx-64::zstd-1.5.5-h829000d_0 
+
+The following packages will be UPDATED:
+
+  openssl              pkgs/main::openssl-3.0.11-hca72f7f_2 --> conda-forge::openssl-3.1.3-h8a1eda9_0 
+  zlib                    pkgs/main::zlib-1.2.13-h4dc903c_0 --> conda-forge::zlib-1.2.13-h8a1eda9_5 
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+  ca-certificates    pkgs/main::ca-certificates-2023.08.22~ --> conda-forge::ca-certificates-2023.7.22-h8857fd0_0 
+
+
+
+Downloading and Extracting Packages:
+                                                                                                                                                             
+Preparing transaction: done                                                                                                                                  
+Verifying transaction: done                                                                                                                                  
+Executing transaction: done                           
+
+$ mamba
+
+usage: mamba [-h] [-v] [--no-plugins] [-V] COMMAND ...                                                                                                       
+                                                                                                                                                             
+conda is a tool for managing and deploying applications, environments and packages.                                                                          
+                                                                                                                                                             
+options:                                                                                                                                                     
+  -h, --help          Show this help message and exit.                                                                                                       
+  -v, --verbose       Can be used multiple times. Once for detailed output, twice for INFO logging, thrice for DEBUG logging, four times for TRACE logging.  
+  --no-plugins        Disable all plugins that are not built into conda.                                                                                     
+  -V, --version       Show the conda version number and exit.                                                                                                
+                                                                                                                                                             
+commands:                                                                                                                                                    
+  The following built-in and plugins subcommands are available.                                                                                              
+                                                                                                                                                             
+  COMMAND                                                                                                                                                    
+    clean             Remove unused packages and caches.                                                                                                     
+    compare           Compare packages between conda environments.                                                                                           
+    config            Modify configuration values in .condarc.                                                                                               
+    create            Create a new conda environment from a list of specified packages.                                                                      
+    doctor            Display a health report for your environment.                                                                                          
+    env               See `conda env --help`.                                                                                                                
+    info              Display information about current conda install.                                                                                       
+    init              Initialize conda for shell interaction.                                                                                                
+    install           Install a list of packages into a specified conda environment.                                                                         
+    list              List installed packages in a conda environment.                                                                                        
+    notices           Retrieve latest channel notifications.                                                                                                 
+    package           Create low-level conda packages. (EXPERIMENTAL)                                                                                        
+    remove (uninstall)                                                                                                                                       
+                      Remove a list of packages from a specified conda environment.                                                                          
+    rename            Rename an existing environment.                                                                                                        
+    repoquery         Query repositories using mamba.                                                                                                        
+    run               Run an executable in a conda environment.                                                                                              
+    search            Search for packages and display associated information using the MatchSpec format.                                                     
+    update (upgrade)  Update conda packages to the latest compatible version.    
+
+## (4) Install anvi’o
+
+$ curl -L https://github.com/merenlab/anvio/releases/download/v8/anvio-8.tar.gz \
+        --output anvio-8.tar.gz
+
+$ export CC=/usr/bin/clang
+$ export CXX=/usr/bin/clang++
+
+$ pip install anvio-8.tar.gz
+
+Error...
+
+$ conda deactivate
+
+$ pip install anvio-8.tar.gz
+
+## (5) Common problems
+
+$ export CC=/usr/bin/clang
+$ export CXX=/usr/bin/clang++
+$ pip install anvio-8.tar.gz
+
+Error
+
+$ export CC=clang
+$ pip install anvio-8.tar.gz
+
+
+$ conda remove -y samtools
+$ conda install -y -c bioconda samtools=1.9
+
+$ conda install -y -c bioconda samtools
+$ samtools --version
+
+samtools 1.3.1
+Using htslib 1.3.1
+Copyright (C) 2016 Genome Research Ltd.
+
+$ pip install anvio-8.tar.gz
+
+Error
+
+$ sudo rm -rf /Library/Developer/CommandLineTools
+$ xcode-select --install
+설치하는데 오래걸림
+
+$ clang --version
+Apple clang version 15.0.0 (clang-1500.0.40.1)
+Target: x86_64-apple-darwin22.6.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+$ export CC=clang
+$ pip install anvio-8.tar.gz
+
+성공..!
+
+## (6) Check your installation
+
+anvi-self-test --suite mini
+
+:: Output directory ...
+
+/var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4
+
+
+
+:: Can has interactive displays? ...
+
+Yes, anvi'o will try to show you interactive displays that will require you to come back to the terminal and press CTRL+C to continue
+
+
+
+:: Do we use threadz yo? ...
+
+NO THREADS FOR YOU! (well, ok. just one.)
+
+
+
+:: Anvi'o version ...
+
+Anvi'o .......................................: marie (v8)
+Python .......................................: 3.10.13
+
+Profile database .............................: 38
+Contigs database .............................: 21
+Pan database .................................: 16
+Genome data storage ..........................: 7
+Auxiliary data storage .......................: 2
+Structure database ...........................: 2
+Metabolic modules database ...................: 4
+tRNA-seq database ............................: 2
+
+
+
+:: Initializing raw BAM files ...
+
+Sorted BAM File ..............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4/SAMPLE-01.bam
+BAM File Index ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4/SAMPLE-01.bam.bai
+
+Sorted BAM File ..............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4/SAMPLE-02.bam
+BAM File Index ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4/SAMPLE-02.bam.bai
+
+Sorted BAM File ..............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4/SAMPLE-03.bam
+BAM File Index ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4/SAMPLE-03.bam.bai
+
+
+
+:: Generating an EMPTY contigs database ...
+
+Input FASTA file .............................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/tests/sandbox/contigs.fa
+Name .........................................: Contigs DB for anvi'o mini self-test
+Description ..................................: No description is given
+Num threads for gene calling .................: 1                                                                   
+
+
+Config Error: An anvi'o function needs 'prodigal' to be installed on your system, but it   
+              doesn't seem to appear in your path :/ If you are certain you have it on your
+              system (for instance you can run it by typing 'prodigal' in your terminal    
+              window), you may want to send a detailed bug report. Sorry!                  
+
+
+
+
+Config Error: According to the exit code ('255'), anvi'o suspects that something may have gone
+              wrong while running your tests :/ We hope that the reason is clear to you from  
+              the lines above. But if you don't see anything obvious, and especially if the   
+              test ended up running until the end with reasonable looking final results, you  
+              shouldn't worry too much about this error. Life is short and we all can worry   
+              just a bit less.                                                                
+
+
+
+
+
+
+
+
 
 
