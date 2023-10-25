@@ -1,27 +1,245 @@
 # anvi'o (https://anvio.org/install/macos/stable/)
 
-## (1) Things you need before you start - miniconda installation
+#### (1) Things you need before you start  ####
+#### - miniconda installation (https://docs.conda.io/projects/miniconda/en/latest/)
 
-$ mkdir -p ~/miniconda3
-$ curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
-$ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-$ rm -rf ~/miniconda3/miniconda.sh
+Last login: Wed Oct 25 19:46:59 on ttys001
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+foodlabui-iMac:~ foodlab$ ls
+Applications		Downloads		OneDrive - pusan.ac.kr	sratoolkit.tar.gz
+CytoscapeConfiguration	Library			Pictures
+Desktop			Movies			Public
+Documents		Music			sratoolkit.3.0.0-mac64
+foodlabui-iMac:~ foodlab$ mkdir -p ~/miniconda3
+foodlabui-iMac:~ foodlab$ ls
+Applications		Downloads		OneDrive - pusan.ac.kr	sratoolkit.3.0.0-mac64
+CytoscapeConfiguration	Library			Pictures		sratoolkit.tar.gz
+Desktop			Movies			Public
+Documents		Music			miniconda3
+foodlabui-iMac:~ foodlab$ curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 83.6M  100 83.6M    0     0  11.0M      0  0:00:07  0:00:07 --:--:-- 11.1M
+foodlabui-iMac:~ foodlab$ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+PREFIX=/Users/foodlab/miniconda3
+Unpacking payload ...
+                                                                                                                                              
+Installing base environment...
 
 
-## (2) set up conda
-$ conda --version
+Downloading and Extracting Packages
+
+
+Downloading and Extracting Packages
+
+Preparing transaction: done
+Executing transaction: | 
+done
+installation finished.
+foodlabui-iMac:~ foodlab$ ~/miniconda3/bin/conda init bash
+no change     /Users/foodlab/miniconda3/condabin/conda
+no change     /Users/foodlab/miniconda3/bin/conda
+no change     /Users/foodlab/miniconda3/bin/conda-env
+no change     /Users/foodlab/miniconda3/bin/activate
+no change     /Users/foodlab/miniconda3/bin/deactivate
+no change     /Users/foodlab/miniconda3/etc/profile.d/conda.sh
+no change     /Users/foodlab/miniconda3/etc/fish/conf.d/conda.fish
+no change     /Users/foodlab/miniconda3/shell/condabin/Conda.psm1
+modified      /Users/foodlab/miniconda3/shell/condabin/conda-hook.ps1
+no change     /Users/foodlab/miniconda3/lib/python3.11/site-packages/xontrib/conda.xsh
+no change     /Users/foodlab/miniconda3/etc/profile.d/conda.csh
+no change     /Users/foodlab/.bash_profile
+
+==> For changes to take effect, close and re-open your current shell. <==
+
+foodlabui-iMac:~ foodlab$ 
+
+Last login: Wed Oct 25 23:08:24 on ttys000
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+(base) foodlabui-iMac:~ foodlab$ ~/miniconda3/bin/conda init zsh
+no change     /Users/foodlab/miniconda3/condabin/conda
+no change     /Users/foodlab/miniconda3/bin/conda
+no change     /Users/foodlab/miniconda3/bin/conda-env
+no change     /Users/foodlab/miniconda3/bin/activate
+no change     /Users/foodlab/miniconda3/bin/deactivate
+no change     /Users/foodlab/miniconda3/etc/profile.d/conda.sh
+no change     /Users/foodlab/miniconda3/etc/fish/conf.d/conda.fish
+no change     /Users/foodlab/miniconda3/shell/condabin/Conda.psm1
+no change     /Users/foodlab/miniconda3/shell/condabin/conda-hook.ps1
+no change     /Users/foodlab/miniconda3/lib/python3.11/site-packages/xontrib/conda.xsh
+no change     /Users/foodlab/miniconda3/etc/profile.d/conda.csh
+no change     /Users/foodlab/.zshrc
+No action taken.
+(base) foodlabui-iMac:~ foodlab$ 
+
+
+
+#### (2) Set up conda ####
+
+Last login: Wed Oct 25 23:14:33 on ttys000
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+(base) foodlabui-iMac:~ foodlab$ CONDA
+usage: CONDA [-h] [-v] [--no-plugins] [-V] COMMAND ...
+
+conda is a tool for managing and deploying applications, environments and packages.
+
+options:
+  -h, --help          Show this help message and exit.
+  -v, --verbose       Can be used multiple times. Once for detailed output, twice for INFO
+                      logging, thrice for DEBUG logging, four times for TRACE logging.
+  --no-plugins        Disable all plugins that are not built into conda.
+  -V, --version       Show the conda version number and exit.
+
+commands:
+  The following built-in and plugins subcommands are available.
+
+  COMMAND
+    clean             Remove unused packages and caches.
+    compare           Compare packages between conda environments.
+    config            Modify configuration values in .condarc.
+    content-trust     Signing and verification tools for Conda
+    create            Create a new conda environment from a list of specified packages.
+    doctor            Display a health report for your environment.
+    env               See `conda env --help`.
+    info              Display information about current conda install.
+    init              Initialize conda for shell interaction.
+    install           Install a list of packages into a specified conda environment.
+    list              List installed packages in a conda environment.
+    notices           Retrieve latest channel notifications.
+    package           Create low-level conda packages. (EXPERIMENTAL)
+    remove (uninstall)
+                      Remove a list of packages from a specified conda environment.
+    rename            Rename an existing environment.
+    repoquery         Advanced search for repodata.
+    run               Run an executable in a conda environment.
+    search            Search for packages and display associated information using the MatchSpec
+                      format.
+    update (upgrade)  Update conda packages to the latest compatible version.
+(base) foodlabui-iMac:~ foodlab$ conda --version
 conda 23.9.0
+(base) foodlabui-iMac:~ foodlab$ conda update conda
+Retrieving notices: ...working... done
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
 
-$ conda update conda
+## Package Plan ##
+
+  environment location: /Users/foodlab/miniconda3
+
+  added / updated specs:
+    - conda
 
 
-## (3) Setup an anvi’o environment
-$ conda config --env --set subdir osx-64
+The following packages will be downloaded:
 
-$ conda create -y --name anvio-8 python=3.10
-$ conda activate anvio-8
-$ conda install -y -c conda-forge mamba
+    package                    |            build
+    ---------------------------|-----------------
+    libcurl-8.4.0              |       h3e2b118_0         355 KB
+    libnghttp2-1.57.0          |       h62f6fdd_0         634 KB
+    ------------------------------------------------------------
+                                           Total:         989 KB
 
+The following packages will be UPDATED:
+
+  libcurl                                  8.2.1-h3e2b118_0 --> 8.4.0-h3e2b118_0 
+  libnghttp2                              1.52.0-h62f6fdd_1 --> 1.57.0-h62f6fdd_0 
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages:
+                                                                                                    
+Preparing transaction: done                                                                         
+Verifying transaction: done
+Executing transaction: done
+
+
+#### (3) Setup an anvi’o environment ####
+
+(base) foodlabui-iMac:~ foodlab$ conda config --env --set subdir osx-64
+
+(base) foodlabui-iMac:~ foodlab$ python --version
+Python 3.11.5
+
+(base) foodlabui-iMac:~ foodlab$ conda create -y --name anvio-8 python=3.11
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /Users/foodlab/miniconda3/envs/anvio-8
+
+  added / updated specs:
+    - python=3.11
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    bzip2-1.0.8                |       h1de35cc_0          75 KB
+    ca-certificates-2023.08.22 |       hecd8cb5_0         124 KB
+    libffi-3.4.4               |       hecd8cb5_0         132 KB
+    ncurses-6.4                |       hcec6c5f_0        1018 KB
+    openssl-3.0.11             |       hca72f7f_2         4.5 MB
+    pip-23.3                   |  py311hecd8cb5_0         3.3 MB
+    python-3.11.5              |       hf27a42d_0        15.6 MB
+    readline-8.2               |       hca72f7f_0         328 KB
+    setuptools-68.0.0          |  py311hecd8cb5_0         1.2 MB
+    sqlite-3.41.2              |       h6c40b1e_0         1.2 MB
+    tk-8.6.12                  |       h5d9f67b_0         3.1 MB
+    wheel-0.41.2               |  py311hecd8cb5_0         146 KB
+    xz-5.4.2                   |       h6c40b1e_0         372 KB
+    zlib-1.2.13                |       h4dc903c_0          96 KB
+    ------------------------------------------------------------
+                                           Total:        31.1 MB
+
+The following NEW packages will be INSTALLED:
+
+  bzip2              pkgs/main/osx-64::bzip2-1.0.8-h1de35cc_0 
+  ca-certificates    pkgs/main/osx-64::ca-certificates-2023.08.22-hecd8cb5_0 
+  libffi             pkgs/main/osx-64::libffi-3.4.4-hecd8cb5_0 
+  ncurses            pkgs/main/osx-64::ncurses-6.4-hcec6c5f_0 
+  openssl            pkgs/main/osx-64::openssl-3.0.11-hca72f7f_2 
+  pip                pkgs/main/osx-64::pip-23.3-py311hecd8cb5_0 
+  python             pkgs/main/osx-64::python-3.11.5-hf27a42d_0 
+  readline           pkgs/main/osx-64::readline-8.2-hca72f7f_0 
+  setuptools         pkgs/main/osx-64::setuptools-68.0.0-py311hecd8cb5_0 
+  sqlite             pkgs/main/osx-64::sqlite-3.41.2-h6c40b1e_0 
+  tk                 pkgs/main/osx-64::tk-8.6.12-h5d9f67b_0 
+  tzdata             pkgs/main/noarch::tzdata-2023c-h04d1e81_0 
+  wheel              pkgs/main/osx-64::wheel-0.41.2-py311hecd8cb5_0 
+  xz                 pkgs/main/osx-64::xz-5.4.2-h6c40b1e_0 
+  zlib               pkgs/main/osx-64::zlib-1.2.13-h4dc903c_0 
+
+
+
+Downloading and Extracting Packages:
+                                                                                                                                               
+Preparing transaction: done                                                                                                                    
+Verifying transaction: done                                                                                                                    
+Executing transaction: done                                                                                                                    
+#                                                                                                                                              
+# To activate this environment, use                                                                                                            
+#                                                                                                                                              
+#     $ conda activate anvio-8                                                                                                                 
+#                                                                                                                                              
+# To deactivate an active environment, use                                                                                                     
+#                                                                                                                                              
+#     $ conda deactivate                 
+
+(base) foodlabui-iMac:~ foodlab$ conda activate anvio-8                                                                                        
+(anvio-8) foodlabui-iMac:~ foodlab$ conda install -y -c conda-forge mamba
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
@@ -38,22 +256,22 @@ The following packages will be downloaded:
     package                    |            build
     ---------------------------|-----------------
     boltons-23.0.0             |     pyhd8ed1ab_0         296 KB  conda-forge
-    brotli-python-1.1.0        |  py310h9e9d8ca_1         358 KB  conda-forge
+    brotli-python-1.1.0        |  py311hdf8f085_1         358 KB  conda-forge
     c-ares-1.20.1              |       h10d778d_1         101 KB  conda-forge
     ca-certificates-2023.7.22  |       h8857fd0_0         146 KB  conda-forge
     certifi-2023.7.22          |     pyhd8ed1ab_0         150 KB  conda-forge
-    cffi-1.16.0                |  py310hdca579f_0         224 KB  conda-forge
+    cffi-1.16.0                |  py311hc0b63fd_0         283 KB  conda-forge
     charset-normalizer-3.3.1   |     pyhd8ed1ab_0          45 KB  conda-forge
     colorama-0.4.6             |     pyhd8ed1ab_0          25 KB  conda-forge
-    conda-23.9.0               |  py310h2ec42d9_0         947 KB  conda-forge
+    conda-23.9.0               |  py311h6eed73b_0         1.2 MB  conda-forge
     conda-package-handling-2.2.0|     pyh38be061_0         249 KB  conda-forge
     conda-package-streaming-0.9.0|     pyhd8ed1ab_0          19 KB  conda-forge
-    cryptography-41.0.4        |  py310ha1817de_0         1.2 MB  conda-forge
+    cryptography-41.0.5        |  py311hd51016d_0         1.2 MB  conda-forge
     fmt-10.1.1                 |       h1c7c39f_0         176 KB  conda-forge
     icu-73.2                   |       hf5e326d_0        11.2 MB  conda-forge
     idna-3.4                   |     pyhd8ed1ab_0          55 KB  conda-forge
     jsonpatch-1.33             |     pyhd8ed1ab_0          17 KB  conda-forge
-    jsonpointer-2.4            |  py310h2ec42d9_3          16 KB  conda-forge
+    jsonpointer-2.4            |  py311h6eed73b_3          18 KB  conda-forge
     krb5-1.21.2                |       hb884880_0         1.1 MB  conda-forge
     libarchive-3.7.2           |       h0b5dc4a_0         735 KB  conda-forge
     libcurl-8.4.0              |       h726d00d_0         357 KB  conda-forge
@@ -62,7 +280,7 @@ The following packages will be downloaded:
     libev-4.33                 |       haf1e3a3_1          99 KB  conda-forge
     libiconv-1.17              |       hac89ed1_0         1.3 MB  conda-forge
     libmamba-1.5.2             |       hb976dfd_0         1.2 MB  conda-forge
-    libmambapy-1.5.2           |  py310hd068509_0         253 KB  conda-forge
+    libmambapy-1.5.2           |  py311hea6ce72_0         254 KB  conda-forge
     libnghttp2-1.52.0          |       he2ab024_0         599 KB  conda-forge
     libsolv-0.7.25             |       h7d26f99_0         407 KB  conda-forge
     libssh2-1.11.0             |       hd019ec5_0         253 KB  conda-forge
@@ -70,49 +288,49 @@ The following packages will be downloaded:
     libzlib-1.2.13             |       h8a1eda9_5          58 KB  conda-forge
     lz4-c-1.9.4                |       hf0c8a7f_0         153 KB  conda-forge
     lzo-2.10                   |    haf1e3a3_1000         190 KB  conda-forge
-    mamba-1.5.2                |  py310h6bde348_0          51 KB  conda-forge
-    openssl-3.1.3              |       h8a1eda9_0         2.2 MB  conda-forge
+    mamba-1.5.2                |  py311h8082e30_0          65 KB  conda-forge
+    openssl-3.1.4              |       hd75f5a5_0         2.2 MB  conda-forge
     packaging-23.2             |     pyhd8ed1ab_0          48 KB  conda-forge
     pluggy-1.3.0               |     pyhd8ed1ab_0          22 KB  conda-forge
     pybind11-abi-4             |       hd8ed1ab_3          10 KB  conda-forge
-    pycosat-0.6.6              |  py310h6729b98_0          83 KB  conda-forge
+    pycosat-0.6.6              |  py311h2725bcf_0          86 KB  conda-forge
     pycparser-2.21             |     pyhd8ed1ab_0         100 KB  conda-forge
     pyopenssl-23.2.0           |     pyhd8ed1ab_1         126 KB  conda-forge
     pysocks-1.7.1              |     pyha2e5f31_6          19 KB  conda-forge
-    python_abi-3.10            |          2_cp310           4 KB  conda-forge
+    python_abi-3.11            |          2_cp311           5 KB  conda-forge
     reproc-14.2.4.post0        |       h0dc2134_0          29 KB  conda-forge
     reproc-cpp-14.2.4.post0    |       he965462_0          22 KB  conda-forge
     requests-2.31.0            |     pyhd8ed1ab_0          55 KB  conda-forge
-    ruamel.yaml-0.17.39        |  py310hb372a2b_0         200 KB  conda-forge
-    ruamel.yaml.clib-0.2.7     |  py310h6729b98_2         116 KB  conda-forge
+    ruamel.yaml-0.17.40        |  py311he705e18_0         271 KB  conda-forge
+    ruamel.yaml.clib-0.2.7     |  py311h2725bcf_2         115 KB  conda-forge
     tqdm-4.66.1                |     pyhd8ed1ab_0          87 KB  conda-forge
     truststore-0.8.0           |     pyhd8ed1ab_0          20 KB  conda-forge
     urllib3-2.0.7              |     pyhd8ed1ab_0          96 KB  conda-forge
     yaml-cpp-0.8.0             |       he965462_0         127 KB  conda-forge
     zlib-1.2.13                |       h8a1eda9_5          89 KB  conda-forge
-    zstandard-0.21.0           |  py310h151724a_1         400 KB  conda-forge
+    zstandard-0.21.0           |  py311h26cfcfc_1         410 KB  conda-forge
     zstd-1.5.5                 |       h829000d_0         488 KB  conda-forge
     ------------------------------------------------------------
-                                           Total:        28.0 MB
+                                           Total:        28.5 MB
 
 The following NEW packages will be INSTALLED:
 
   boltons            conda-forge/noarch::boltons-23.0.0-pyhd8ed1ab_0 
-  brotli-python      conda-forge/osx-64::brotli-python-1.1.0-py310h9e9d8ca_1 
+  brotli-python      conda-forge/osx-64::brotli-python-1.1.0-py311hdf8f085_1 
   c-ares             conda-forge/osx-64::c-ares-1.20.1-h10d778d_1 
   certifi            conda-forge/noarch::certifi-2023.7.22-pyhd8ed1ab_0 
-  cffi               conda-forge/osx-64::cffi-1.16.0-py310hdca579f_0 
+  cffi               conda-forge/osx-64::cffi-1.16.0-py311hc0b63fd_0 
   charset-normalizer conda-forge/noarch::charset-normalizer-3.3.1-pyhd8ed1ab_0 
   colorama           conda-forge/noarch::colorama-0.4.6-pyhd8ed1ab_0 
-  conda              conda-forge/osx-64::conda-23.9.0-py310h2ec42d9_0 
+  conda              conda-forge/osx-64::conda-23.9.0-py311h6eed73b_0 
   conda-package-han~ conda-forge/noarch::conda-package-handling-2.2.0-pyh38be061_0 
   conda-package-str~ conda-forge/noarch::conda-package-streaming-0.9.0-pyhd8ed1ab_0 
-  cryptography       conda-forge/osx-64::cryptography-41.0.4-py310ha1817de_0 
+  cryptography       conda-forge/osx-64::cryptography-41.0.5-py311hd51016d_0 
   fmt                conda-forge/osx-64::fmt-10.1.1-h1c7c39f_0 
   icu                conda-forge/osx-64::icu-73.2-hf5e326d_0 
   idna               conda-forge/noarch::idna-3.4-pyhd8ed1ab_0 
   jsonpatch          conda-forge/noarch::jsonpatch-1.33-pyhd8ed1ab_0 
-  jsonpointer        conda-forge/osx-64::jsonpointer-2.4-py310h2ec42d9_3 
+  jsonpointer        conda-forge/osx-64::jsonpointer-2.4-py311h6eed73b_3 
   krb5               conda-forge/osx-64::krb5-1.21.2-hb884880_0 
   libarchive         conda-forge/osx-64::libarchive-3.7.2-h0b5dc4a_0 
   libcurl            conda-forge/osx-64::libcurl-8.4.0-h726d00d_0 
@@ -121,7 +339,7 @@ The following NEW packages will be INSTALLED:
   libev              conda-forge/osx-64::libev-4.33-haf1e3a3_1 
   libiconv           conda-forge/osx-64::libiconv-1.17-hac89ed1_0 
   libmamba           conda-forge/osx-64::libmamba-1.5.2-hb976dfd_0 
-  libmambapy         conda-forge/osx-64::libmambapy-1.5.2-py310hd068509_0 
+  libmambapy         conda-forge/osx-64::libmambapy-1.5.2-py311hea6ce72_0 
   libnghttp2         conda-forge/osx-64::libnghttp2-1.52.0-he2ab024_0 
   libsolv            conda-forge/osx-64::libsolv-0.7.25-h7d26f99_0 
   libssh2            conda-forge/osx-64::libssh2-1.11.0-hd019ec5_0 
@@ -129,30 +347,30 @@ The following NEW packages will be INSTALLED:
   libzlib            conda-forge/osx-64::libzlib-1.2.13-h8a1eda9_5 
   lz4-c              conda-forge/osx-64::lz4-c-1.9.4-hf0c8a7f_0 
   lzo                conda-forge/osx-64::lzo-2.10-haf1e3a3_1000 
-  mamba              conda-forge/osx-64::mamba-1.5.2-py310h6bde348_0 
+  mamba              conda-forge/osx-64::mamba-1.5.2-py311h8082e30_0 
   packaging          conda-forge/noarch::packaging-23.2-pyhd8ed1ab_0 
   pluggy             conda-forge/noarch::pluggy-1.3.0-pyhd8ed1ab_0 
   pybind11-abi       conda-forge/noarch::pybind11-abi-4-hd8ed1ab_3 
-  pycosat            conda-forge/osx-64::pycosat-0.6.6-py310h6729b98_0 
+  pycosat            conda-forge/osx-64::pycosat-0.6.6-py311h2725bcf_0 
   pycparser          conda-forge/noarch::pycparser-2.21-pyhd8ed1ab_0 
   pyopenssl          conda-forge/noarch::pyopenssl-23.2.0-pyhd8ed1ab_1 
   pysocks            conda-forge/noarch::pysocks-1.7.1-pyha2e5f31_6 
-  python_abi         conda-forge/osx-64::python_abi-3.10-2_cp310 
+  python_abi         conda-forge/osx-64::python_abi-3.11-2_cp311 
   reproc             conda-forge/osx-64::reproc-14.2.4.post0-h0dc2134_0 
   reproc-cpp         conda-forge/osx-64::reproc-cpp-14.2.4.post0-he965462_0 
   requests           conda-forge/noarch::requests-2.31.0-pyhd8ed1ab_0 
-  ruamel.yaml        conda-forge/osx-64::ruamel.yaml-0.17.39-py310hb372a2b_0 
-  ruamel.yaml.clib   conda-forge/osx-64::ruamel.yaml.clib-0.2.7-py310h6729b98_2 
+  ruamel.yaml        conda-forge/osx-64::ruamel.yaml-0.17.40-py311he705e18_0 
+  ruamel.yaml.clib   conda-forge/osx-64::ruamel.yaml.clib-0.2.7-py311h2725bcf_2 
   tqdm               conda-forge/noarch::tqdm-4.66.1-pyhd8ed1ab_0 
   truststore         conda-forge/noarch::truststore-0.8.0-pyhd8ed1ab_0 
   urllib3            conda-forge/noarch::urllib3-2.0.7-pyhd8ed1ab_0 
   yaml-cpp           conda-forge/osx-64::yaml-cpp-0.8.0-he965462_0 
-  zstandard          conda-forge/osx-64::zstandard-0.21.0-py310h151724a_1 
+  zstandard          conda-forge/osx-64::zstandard-0.21.0-py311h26cfcfc_1 
   zstd               conda-forge/osx-64::zstd-1.5.5-h829000d_0 
 
 The following packages will be UPDATED:
 
-  openssl              pkgs/main::openssl-3.0.11-hca72f7f_2 --> conda-forge::openssl-3.1.3-h8a1eda9_0 
+  openssl              pkgs/main::openssl-3.0.11-hca72f7f_2 --> conda-forge::openssl-3.1.4-hd75f5a5_0 
   zlib                    pkgs/main::zlib-1.2.13-h4dc903c_0 --> conda-forge::zlib-1.2.13-h8a1eda9_5 
 
 The following packages will be SUPERSEDED by a higher-priority channel:
@@ -162,111 +380,336 @@ The following packages will be SUPERSEDED by a higher-priority channel:
 
 
 Downloading and Extracting Packages:
-                                                                                                                                                             
-Preparing transaction: done                                                                                                                                  
-Verifying transaction: done                                                                                                                                  
-Executing transaction: done                           
+                                                                                                           
+Preparing transaction: done                                                                                
+Verifying transaction: done                                                                                
+Executing transaction: done   
 
-$ mamba
-
-usage: mamba [-h] [-v] [--no-plugins] [-V] COMMAND ...                                                                                                       
-                                                                                                                                                             
-conda is a tool for managing and deploying applications, environments and packages.                                                                          
-                                                                                                                                                             
-options:                                                                                                                                                     
-  -h, --help          Show this help message and exit.                                                                                                       
-  -v, --verbose       Can be used multiple times. Once for detailed output, twice for INFO logging, thrice for DEBUG logging, four times for TRACE logging.  
-  --no-plugins        Disable all plugins that are not built into conda.                                                                                     
-  -V, --version       Show the conda version number and exit.                                                                                                
-                                                                                                                                                             
-commands:                                                                                                                                                    
-  The following built-in and plugins subcommands are available.                                                                                              
-                                                                                                                                                             
-  COMMAND                                                                                                                                                    
-    clean             Remove unused packages and caches.                                                                                                     
-    compare           Compare packages between conda environments.                                                                                           
-    config            Modify configuration values in .condarc.                                                                                               
-    create            Create a new conda environment from a list of specified packages.                                                                      
-    doctor            Display a health report for your environment.                                                                                          
-    env               See `conda env --help`.                                                                                                                
-    info              Display information about current conda install.                                                                                       
-    init              Initialize conda for shell interaction.                                                                                                
-    install           Install a list of packages into a specified conda environment.                                                                         
-    list              List installed packages in a conda environment.                                                                                        
-    notices           Retrieve latest channel notifications.                                                                                                 
-    package           Create low-level conda packages. (EXPERIMENTAL)                                                                                        
-    remove (uninstall)                                                                                                                                       
-                      Remove a list of packages from a specified conda environment.                                                                          
-    rename            Rename an existing environment.                                                                                                        
-    repoquery         Query repositories using mamba.                                                                                                        
-    run               Run an executable in a conda environment.                                                                                              
-    search            Search for packages and display associated information using the MatchSpec format.                                                     
-    update (upgrade)  Update conda packages to the latest compatible version.    
-
-## (4) Install anvi’o
-
-$ curl -L https://github.com/merenlab/anvio/releases/download/v8/anvio-8.tar.gz \
-        --output anvio-8.tar.gz
-
-$ export CC=/usr/bin/clang
-$ export CXX=/usr/bin/clang++
-
-$ pip install anvio-8.tar.gz
-
-Error...
-
-$ conda deactivate
-
-$ pip install anvio-8.tar.gz
-
-## (5) Common problems
-
-$ export CC=/usr/bin/clang
-$ export CXX=/usr/bin/clang++
-$ pip install anvio-8.tar.gz
-
-Error
-
-$ export CC=clang
-$ pip install anvio-8.tar.gz
+(anvio-8) foodlabui-iMac:~ foodlab$ mamba
+usage: mamba [-h] [-v] [--no-plugins] [-V] COMMAND ...                                                     
+                                                                                                           
+conda is a tool for managing and deploying applications, environments and packages.                        
+                                                                                                           
+options:                                                                                                   
+  -h, --help          Show this help message and exit.                                                     
+  -v, --verbose       Can be used multiple times. Once for detailed output, twice for INFO logging,        
+                      thrice for DEBUG logging, four times for TRACE logging.                              
+  --no-plugins        Disable all plugins that are not built into conda.                                   
+  -V, --version       Show the conda version number and exit.                                              
+                                                                                                           
+commands:                                                                                                  
+  The following built-in and plugins subcommands are available.                                            
+                                                                                                           
+  COMMAND                                                                                                  
+    clean             Remove unused packages and caches.                                                   
+    compare           Compare packages between conda environments.                                         
+    config            Modify configuration values in .condarc.                                             
+    create            Create a new conda environment from a list of specified packages.                    
+    doctor            Display a health report for your environment.                                        
+    env               See `conda env --help`.                                                              
+    info              Display information about current conda install.                                     
+    init              Initialize conda for shell interaction.                                              
+    install           Install a list of packages into a specified conda environment.                       
+    list              List installed packages in a conda environment.                                      
+    notices           Retrieve latest channel notifications.                                               
+    package           Create low-level conda packages. (EXPERIMENTAL)                                      
+    remove (uninstall)                                                                                     
+                      Remove a list of packages from a specified conda environment.                        
+    rename            Rename an existing environment.                                                      
+    repoquery         Query repositories using mamba.                                                      
+    run               Run an executable in a conda environment.                                            
+    search            Search for packages and display associated information using the MatchSpec format.   
+    update (upgrade)  Update conda packages to the latest compatible version.            
 
 
-$ conda remove -y samtools
-$ conda install -y -c bioconda samtools=1.9
 
-$ conda install -y -c bioconda samtools
-$ samtools --version
+#### (4) Install anvi’o ####
 
-samtools 1.3.1
-Using htslib 1.3.1
-Copyright (C) 2016 Genome Research Ltd.
+(anvio-8) foodlabui-iMac:~ foodlab$ curl -L https://github.com/merenlab/anvio/releases/download/v8/anvio-8.tar.gz \                                                                                                   
+>         --output anvio-8.tar.gz                                                                          
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current                            
+                                 Dload  Upload   Total   Spent    Left  Speed                              
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0                             
+100  235M  100  235M    0     0  6233k      0  0:00:38  0:00:38 --:--:-- 7053k                             
+(anvio-8) foodlabui-iMac:~ foodlab$ pip install anvio-8.tar.gz                                             
+Processing ./anvio-8.tar.gz                                                                                
+  Preparing metadata (setup.py) ... done                                                                   
+Collecting numpy<=1.24 (from anvio==8)                                                                     
+  Downloading numpy-1.24.0-cp311-cp311-macosx_10_9_x86_64.whl (19.8 MB)                                    
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 19.8/19.8 MB 6.8 MB/s eta 0:00:00
+Collecting scipy (from anvio==8)                                                                           
+  Downloading scipy-1.11.3-cp311-cp311-macosx_10_9_x86_64.whl.metadata (60 kB)                             
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.4/60.4 kB 6.8 MB/s eta 0:00:00
+Collecting bottle (from anvio==8)
+  Using cached bottle-0.12.25-py3-none-any.whl (90 kB)
+Collecting pysam (from anvio==8)
+  Downloading pysam-0.22.0-cp311-cp311-macosx_10_9_x86_64.whl.metadata (1.5 kB)
+Collecting ete3 (from anvio==8)
+  Using cached ete3-3.1.3-py3-none-any.whl
+Collecting scikit-learn==1.2.2 (from anvio==8)
+  Downloading scikit_learn-1.2.2-cp311-cp311-macosx_10_9_x86_64.whl (9.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.0/9.0 MB 11.5 MB/s eta 0:00:00
+Collecting django (from anvio==8)
+  Using cached Django-4.2.6-py3-none-any.whl.metadata (4.1 kB)
+Requirement already satisfied: requests in ./miniconda3/envs/anvio-8/lib/python3.11/site-packages (from anvio==8) (2.31.0)
+Collecting mistune (from anvio==8)
+  Using cached mistune-3.0.2-py3-none-any.whl.metadata (1.7 kB)
+Collecting six (from anvio==8)
+  Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Collecting matplotlib (from anvio==8)
+  Downloading matplotlib-3.8.0-cp311-cp311-macosx_10_12_x86_64.whl.metadata (5.8 kB)
+Collecting statsmodels (from anvio==8)
+  Downloading statsmodels-0.14.0-cp311-cp311-macosx_10_9_x86_64.whl (9.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 11.5 MB/s eta 0:00:00
+Collecting colored (from anvio==8)
+  Using cached colored-2.2.3-py3-none-any.whl.metadata (3.6 kB)
+Collecting illumina-utils (from anvio==8)
+  Using cached illumina_utils-2.12-py3-none-any.whl
+Collecting tabulate (from anvio==8)
+  Using cached tabulate-0.9.0-py3-none-any.whl (35 kB)
+Collecting rich-argparse (from anvio==8)
+  Using cached rich_argparse-1.4.0-py3-none-any.whl.metadata (14 kB)
+Collecting numba (from anvio==8)
+  Downloading numba-0.58.1-cp311-cp311-macosx_10_9_x86_64.whl.metadata (2.7 kB)
+Collecting paste (from anvio==8)
+  Using cached Paste-3.7.1-py3-none-any.whl.metadata (4.9 kB)
+Collecting pyani (from anvio==8)
+  Using cached pyani-0.2.12-py3-none-any.whl (59 kB)
+Collecting psutil (from anvio==8)
+  Using cached psutil-5.9.6-cp36-abi3-macosx_10_9_x86_64.whl.metadata (21 kB)
+Collecting pandas==1.4.4 (from anvio==8)
+  Downloading pandas-1.4.4.tar.gz (4.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 11.5 MB/s eta 0:00:00
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting snakemake (from anvio==8)
+  Using cached snakemake-7.32.4-py3-none-any.whl
+Collecting multiprocess (from anvio==8)
+  Downloading multiprocess-0.70.15-py311-none-any.whl.metadata (7.2 kB)
+Collecting plotext (from anvio==8)
+  Using cached plotext-5.2.8-py3-none-any.whl (60 kB)
+Collecting networkx (from anvio==8)
+  Using cached networkx-3.2-py3-none-any.whl.metadata (5.2 kB)
+Collecting python-dateutil>=2.8.1 (from pandas==1.4.4->anvio==8)
+  Using cached python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+Collecting pytz>=2020.1 (from pandas==1.4.4->anvio==8)
+  Using cached pytz-2023.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+Collecting joblib>=1.1.1 (from scikit-learn==1.2.2->anvio==8)
+  Using cached joblib-1.3.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting threadpoolctl>=2.0.0 (from scikit-learn==1.2.2->anvio==8)
+  Using cached threadpoolctl-3.2.0-py3-none-any.whl.metadata (10.0 kB)
+Collecting asgiref<4,>=3.6.0 (from django->anvio==8)
+  Using cached asgiref-3.7.2-py3-none-any.whl.metadata (9.2 kB)
+Collecting sqlparse>=0.3.1 (from django->anvio==8)
+  Using cached sqlparse-0.4.4-py3-none-any.whl (41 kB)
+Collecting python-Levenshtein (from illumina-utils->anvio==8)
+  Using cached python_Levenshtein-0.23.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting contourpy>=1.0.1 (from matplotlib->anvio==8)
+  Downloading contourpy-1.1.1-cp311-cp311-macosx_10_9_x86_64.whl.metadata (5.9 kB)
+Collecting cycler>=0.10 (from matplotlib->anvio==8)
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.22.0 (from matplotlib->anvio==8)
+  Downloading fonttools-4.43.1-cp311-cp311-macosx_10_9_x86_64.whl.metadata (152 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 152.4/152.4 kB 7.6 MB/s eta 0:00:00
+Collecting kiwisolver>=1.0.1 (from matplotlib->anvio==8)
+  Downloading kiwisolver-1.4.5-cp311-cp311-macosx_10_9_x86_64.whl.metadata (6.4 kB)
+Requirement already satisfied: packaging>=20.0 in ./miniconda3/envs/anvio-8/lib/python3.11/site-packages (from matplotlib->anvio==8) (23.2)
+Collecting pillow>=6.2.0 (from matplotlib->anvio==8)
+  Downloading Pillow-10.1.0-cp311-cp311-macosx_10_10_x86_64.whl.metadata (9.5 kB)
+Collecting pyparsing>=2.3.1 (from matplotlib->anvio==8)
+  Using cached pyparsing-3.1.1-py3-none-any.whl.metadata (5.1 kB)
+Collecting dill>=0.3.7 (from multiprocess->anvio==8)
+  Using cached dill-0.3.7-py3-none-any.whl.metadata (9.9 kB)
+Collecting llvmlite<0.42,>=0.41.0dev0 (from numba->anvio==8)
+  Downloading llvmlite-0.41.1-cp311-cp311-macosx_10_9_x86_64.whl.metadata (4.8 kB)
+Requirement already satisfied: setuptools in ./miniconda3/envs/anvio-8/lib/python3.11/site-packages (from paste->anvio==8) (68.0.0)
+Collecting biopython (from pyani->anvio==8)
+  Downloading biopython-1.81-cp311-cp311-macosx_10_9_x86_64.whl (2.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.7/2.7 MB 11.5 MB/s eta 0:00:00
+Collecting seaborn (from pyani->anvio==8)
+  Using cached seaborn-0.13.0-py3-none-any.whl.metadata (5.3 kB)
+Requirement already satisfied: charset-normalizer<4,>=2 in ./miniconda3/envs/anvio-8/lib/python3.11/site-packages (from requests->anvio==8) (3.3.1)
+Requirement already satisfied: idna<4,>=2.5 in ./miniconda3/envs/anvio-8/lib/python3.11/site-packages (from requests->anvio==8) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./miniconda3/envs/anvio-8/lib/python3.11/site-packages (from requests->anvio==8) (2.0.7)
+Requirement already satisfied: certifi>=2017.4.17 in ./miniconda3/envs/anvio-8/lib/python3.11/site-packages (from requests->anvio==8) (2023.7.22)
+Collecting rich>=11.0.0 (from rich-argparse->anvio==8)
+  Using cached rich-13.6.0-py3-none-any.whl.metadata (18 kB)
+Collecting appdirs (from snakemake->anvio==8)
+  Using cached appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+Collecting configargparse (from snakemake->anvio==8)
+  Using cached ConfigArgParse-1.7-py3-none-any.whl.metadata (23 kB)
+Collecting connection-pool>=0.0.3 (from snakemake->anvio==8)
+  Using cached connection_pool-0.0.3-py3-none-any.whl
+Collecting datrie (from snakemake->anvio==8)
+  Using cached datrie-0.8.2.tar.gz (63 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Installing backend dependencies ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting docutils (from snakemake->anvio==8)
+  Using cached docutils-0.20.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting gitpython (from snakemake->anvio==8)
+  Using cached GitPython-3.1.40-py3-none-any.whl.metadata (12 kB)
+Collecting humanfriendly (from snakemake->anvio==8)
+  Using cached humanfriendly-10.0-py2.py3-none-any.whl (86 kB)
+Collecting jinja2<4.0,>=3.0 (from snakemake->anvio==8)
+  Using cached Jinja2-3.1.2-py3-none-any.whl (133 kB)
+Collecting jsonschema (from snakemake->anvio==8)
+  Using cached jsonschema-4.19.1-py3-none-any.whl.metadata (7.9 kB)
+Collecting nbformat (from snakemake->anvio==8)
+  Using cached nbformat-5.9.2-py3-none-any.whl.metadata (3.4 kB)
+Collecting pulp>=2.0 (from snakemake->anvio==8)
+  Using cached PuLP-2.7.0-py3-none-any.whl (14.3 MB)
+Collecting pyyaml (from snakemake->anvio==8)
+  Downloading PyYAML-6.0.1-cp311-cp311-macosx_10_9_x86_64.whl.metadata (2.1 kB)
+Collecting reretry (from snakemake->anvio==8)
+  Using cached reretry-0.11.8-py2.py3-none-any.whl (5.6 kB)
+Collecting smart-open>=3.0 (from snakemake->anvio==8)
+  Using cached smart_open-6.4.0-py3-none-any.whl.metadata (21 kB)
+Collecting stopit (from snakemake->anvio==8)
+  Using cached stopit-1.1.2-py3-none-any.whl
+Collecting throttler (from snakemake->anvio==8)
+  Using cached throttler-1.2.2-py3-none-any.whl (7.6 kB)
+Collecting toposort>=1.10 (from snakemake->anvio==8)
+  Using cached toposort-1.10-py3-none-any.whl (8.5 kB)
+Collecting wrapt (from snakemake->anvio==8)
+  Downloading wrapt-1.15.0-cp311-cp311-macosx_10_9_x86_64.whl (35 kB)
+Collecting yte<2.0,>=1.5.1 (from snakemake->anvio==8)
+  Using cached yte-1.5.1-py3-none-any.whl (7.5 kB)
+Collecting patsy>=0.5.2 (from statsmodels->anvio==8)
+  Using cached patsy-0.5.3-py2.py3-none-any.whl (233 kB)
+Collecting MarkupSafe>=2.0 (from jinja2<4.0,>=3.0->snakemake->anvio==8)
+  Downloading MarkupSafe-2.1.3-cp311-cp311-macosx_10_9_x86_64.whl.metadata (3.0 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=11.0.0->rich-argparse->anvio==8)
+  Using cached markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=11.0.0->rich-argparse->anvio==8)
+  Using cached Pygments-2.16.1-py3-none-any.whl.metadata (2.5 kB)
+Collecting dpath<3.0,>=2.0 (from yte<2.0,>=1.5.1->snakemake->anvio==8)
+  Using cached dpath-2.1.6-py3-none-any.whl.metadata (15 kB)
+Collecting plac<2.0.0,>=1.3.4 (from yte<2.0,>=1.5.1->snakemake->anvio==8)
+  Using cached plac-1.4.0-py2.py3-none-any.whl.metadata (5.4 kB)
+Collecting gitdb<5,>=4.0.1 (from gitpython->snakemake->anvio==8)
+  Using cached gitdb-4.0.11-py3-none-any.whl.metadata (1.2 kB)
+Collecting attrs>=22.2.0 (from jsonschema->snakemake->anvio==8)
+  Using cached attrs-23.1.0-py3-none-any.whl (61 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema->snakemake->anvio==8)
+  Using cached jsonschema_specifications-2023.7.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting referencing>=0.28.4 (from jsonschema->snakemake->anvio==8)
+  Using cached referencing-0.30.2-py3-none-any.whl.metadata (2.6 kB)
+Collecting rpds-py>=0.7.1 (from jsonschema->snakemake->anvio==8)
+  Downloading rpds_py-0.10.6-cp311-cp311-macosx_10_7_x86_64.whl.metadata (3.7 kB)
+Collecting fastjsonschema (from nbformat->snakemake->anvio==8)
+  Using cached fastjsonschema-2.18.1-py3-none-any.whl.metadata (2.0 kB)
+Collecting jupyter-core (from nbformat->snakemake->anvio==8)
+  Using cached jupyter_core-5.4.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting traitlets>=5.1 (from nbformat->snakemake->anvio==8)
+  Downloading traitlets-5.12.0-py3-none-any.whl.metadata (10 kB)
+Collecting Levenshtein==0.23.0 (from python-Levenshtein->illumina-utils->anvio==8)
+  Downloading Levenshtein-0.23.0-cp311-cp311-macosx_10_9_x86_64.whl.metadata (3.4 kB)
+Collecting rapidfuzz<4.0.0,>=3.1.0 (from Levenshtein==0.23.0->python-Levenshtein->illumina-utils->anvio==8)
+  Downloading rapidfuzz-3.4.0-cp311-cp311-macosx_10_9_x86_64.whl.metadata (11 kB)
+Collecting numpy<=1.24 (from anvio==8)
+  Downloading numpy-1.23.5-cp311-cp311-macosx_10_9_x86_64.whl (18.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.1/18.1 MB 4.8 MB/s eta 0:00:00
+Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython->snakemake->anvio==8)
+  Using cached smmap-5.0.1-py3-none-any.whl.metadata (4.3 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=11.0.0->rich-argparse->anvio==8)
+  Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Collecting platformdirs>=2.5 (from jupyter-core->nbformat->snakemake->anvio==8)
+  Using cached platformdirs-3.11.0-py3-none-any.whl.metadata (11 kB)
+Downloading scipy-1.11.3-cp311-cp311-macosx_10_9_x86_64.whl (37.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.2/37.2 MB 11.3 MB/s eta 0:00:00
+Using cached colored-2.2.3-py3-none-any.whl (16 kB)
+Using cached Django-4.2.6-py3-none-any.whl (8.0 MB)
+Downloading matplotlib-3.8.0-cp311-cp311-macosx_10_12_x86_64.whl (7.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.6/7.6 MB 11.4 MB/s eta 0:00:00
+Using cached mistune-3.0.2-py3-none-any.whl (47 kB)
+Downloading multiprocess-0.70.15-py311-none-any.whl (135 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.4/135.4 kB 8.9 MB/s eta 0:00:00
+Using cached networkx-3.2-py3-none-any.whl (1.6 MB)
+Downloading numba-0.58.1-cp311-cp311-macosx_10_9_x86_64.whl (2.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.6/2.6 MB 11.0 MB/s eta 0:00:00
+Using cached Paste-3.7.1-py3-none-any.whl (281 kB)
+Using cached psutil-5.9.6-cp36-abi3-macosx_10_9_x86_64.whl (246 kB)
+Downloading pysam-0.22.0-cp311-cp311-macosx_10_9_x86_64.whl (8.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.4/8.4 MB 11.4 MB/s eta 0:00:00
+Using cached rich_argparse-1.4.0-py3-none-any.whl (19 kB)
+Using cached asgiref-3.7.2-py3-none-any.whl (24 kB)
+Downloading contourpy-1.1.1-cp311-cp311-macosx_10_9_x86_64.whl (248 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 248.6/248.6 kB 9.2 MB/s eta 0:00:00
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Using cached dill-0.3.7-py3-none-any.whl (115 kB)
+Downloading fonttools-4.43.1-cp311-cp311-macosx_10_9_x86_64.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 10.8 MB/s eta 0:00:00
+Using cached joblib-1.3.2-py3-none-any.whl (302 kB)
+Downloading kiwisolver-1.4.5-cp311-cp311-macosx_10_9_x86_64.whl (68 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 68.2/68.2 kB 9.1 MB/s eta 0:00:00
+Downloading llvmlite-0.41.1-cp311-cp311-macosx_10_9_x86_64.whl (31.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 31.0/31.0 MB 11.0 MB/s eta 0:00:00
+Downloading Pillow-10.1.0-cp311-cp311-macosx_10_10_x86_64.whl (3.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 11.3 MB/s eta 0:00:00
+Using cached pyparsing-3.1.1-py3-none-any.whl (103 kB)
+Using cached pytz-2023.3.post1-py2.py3-none-any.whl (502 kB)
+Using cached rich-13.6.0-py3-none-any.whl (239 kB)
+Using cached smart_open-6.4.0-py3-none-any.whl (57 kB)
+Using cached threadpoolctl-3.2.0-py3-none-any.whl (15 kB)
+Downloading PyYAML-6.0.1-cp311-cp311-macosx_10_9_x86_64.whl (187 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 187.9/187.9 kB 9.3 MB/s eta 0:00:00
+Using cached ConfigArgParse-1.7-py3-none-any.whl (25 kB)
+Using cached docutils-0.20.1-py3-none-any.whl (572 kB)
+Using cached GitPython-3.1.40-py3-none-any.whl (190 kB)
+Using cached jsonschema-4.19.1-py3-none-any.whl (83 kB)
+Using cached nbformat-5.9.2-py3-none-any.whl (77 kB)
+Using cached python_Levenshtein-0.23.0-py3-none-any.whl (9.4 kB)
+Downloading Levenshtein-0.23.0-cp311-cp311-macosx_10_9_x86_64.whl (132 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.9/132.9 kB 9.2 MB/s eta 0:00:00
+Using cached seaborn-0.13.0-py3-none-any.whl (294 kB)
+Using cached dpath-2.1.6-py3-none-any.whl (17 kB)
+Using cached gitdb-4.0.11-py3-none-any.whl (62 kB)
+Using cached jsonschema_specifications-2023.7.1-py3-none-any.whl (17 kB)
+Using cached markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+Downloading MarkupSafe-2.1.3-cp311-cp311-macosx_10_9_x86_64.whl (13 kB)
+Using cached plac-1.4.0-py2.py3-none-any.whl (22 kB)
+Using cached Pygments-2.16.1-py3-none-any.whl (1.2 MB)
+Using cached referencing-0.30.2-py3-none-any.whl (25 kB)
+Downloading rpds_py-0.10.6-cp311-cp311-macosx_10_7_x86_64.whl (332 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 332.9/332.9 kB 10.2 MB/s eta 0:00:00
+Downloading traitlets-5.12.0-py3-none-any.whl (84 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.0/84.0 kB 7.2 MB/s eta 0:00:00
+Using cached fastjsonschema-2.18.1-py3-none-any.whl (23 kB)
+Using cached jupyter_core-5.4.0-py3-none-any.whl (28 kB)
+Using cached platformdirs-3.11.0-py3-none-any.whl (17 kB)
+Downloading rapidfuzz-3.4.0-cp311-cp311-macosx_10_9_x86_64.whl (2.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.6/2.6 MB 10.9 MB/s eta 0:00:00
+Using cached smmap-5.0.1-py3-none-any.whl (24 kB)
+Building wheels for collected packages: anvio, pandas, datrie
+  Building wheel for anvio (setup.py) ... done
+  Created wheel for anvio: filename=anvio-8-py3-none-any.whl size=249065754 sha256=77751fd92b2700d0bcbde7533aa6071cba6347ac439e925d7ef44cbdfc1d529c
+  Stored in directory: /Users/foodlab/Library/Caches/pip/wheels/5d/cc/ef/c3f4f58a1808a782796f6716ce37e5d24837721fe79f7587d4
+  Building wheel for pandas (pyproject.toml) ... done
+  Created wheel for pandas: filename=pandas-1.4.4-cp311-cp311-macosx_10_9_x86_64.whl size=10383499 sha256=6de9f5132c6ef22cce8098127917e60dc0672dbdfbb0eb1236c8b0b3a701e695
+  Stored in directory: /Users/foodlab/Library/Caches/pip/wheels/56/ff/8e/5497c17f51e61a95c9cf4c58914222f311ca968796ee52d430
+  Building wheel for datrie (pyproject.toml) ... done
+  Created wheel for datrie: filename=datrie-0.8.2-cp311-cp311-macosx_10_9_x86_64.whl size=151560 sha256=3632e31e0b50e80327077b83b09277b5c54c900c16aa1b0bcddd1c5c69ec63d6
+  Stored in directory: /Users/foodlab/Library/Caches/pip/wheels/8b/20/f4/aeacf0184f20e22473a01257c56c74cc976e1cd838a01de6d5
+Successfully built anvio pandas datrie
+Installing collected packages: toposort, throttler, stopit, pytz, pulp, plac, fastjsonschema, ete3, connection-pool, bottle, appdirs, wrapt, traitlets, threadpoolctl, tabulate, sqlparse, smmap, smart-open, six, rpds-py, reretry, rapidfuzz, pyyaml, pysam, pyparsing, pygments, psutil, plotext, platformdirs, pillow, numpy, networkx, mistune, mdurl, MarkupSafe, llvmlite, kiwisolver, joblib, humanfriendly, fonttools, dpath, docutils, dill, datrie, cycler, configargparse, colored, attrs, asgiref, yte, scipy, referencing, python-dateutil, patsy, paste, numba, multiprocess, markdown-it-py, Levenshtein, jupyter-core, jinja2, gitdb, django, contourpy, biopython, scikit-learn, rich, python-Levenshtein, pandas, matplotlib, jsonschema-specifications, gitpython, statsmodels, seaborn, rich-argparse, jsonschema, illumina-utils, pyani, nbformat, snakemake, anvio
+Successfully installed Levenshtein-0.23.0 MarkupSafe-2.1.3 anvio-8 appdirs-1.4.4 asgiref-3.7.2 attrs-23.1.0 biopython-1.81 bottle-0.12.25 colored-2.2.3 configargparse-1.7 connection-pool-0.0.3 contourpy-1.1.1 cycler-0.12.1 datrie-0.8.2 dill-0.3.7 django-4.2.6 docutils-0.20.1 dpath-2.1.6 ete3-3.1.3 fastjsonschema-2.18.1 fonttools-4.43.1 gitdb-4.0.11 gitpython-3.1.40 humanfriendly-10.0 illumina-utils-2.12 jinja2-3.1.2 joblib-1.3.2 jsonschema-4.19.1 jsonschema-specifications-2023.7.1 jupyter-core-5.4.0 kiwisolver-1.4.5 llvmlite-0.41.1 markdown-it-py-3.0.0 matplotlib-3.8.0 mdurl-0.1.2 mistune-3.0.2 multiprocess-0.70.15 nbformat-5.9.2 networkx-3.2 numba-0.58.1 numpy-1.23.5 pandas-1.4.4 paste-3.7.1 patsy-0.5.3 pillow-10.1.0 plac-1.4.0 platformdirs-3.11.0 plotext-5.2.8 psutil-5.9.6 pulp-2.7.0 pyani-0.2.12 pygments-2.16.1 pyparsing-3.1.1 pysam-0.22.0 python-Levenshtein-0.23.0 python-dateutil-2.8.2 pytz-2023.3.post1 pyyaml-6.0.1 rapidfuzz-3.4.0 referencing-0.30.2 reretry-0.11.8 rich-13.6.0 rich-argparse-1.4.0 rpds-py-0.10.6 scikit-learn-1.2.2 scipy-1.11.3 seaborn-0.13.0 six-1.16.0 smart-open-6.4.0 smmap-5.0.1 snakemake-7.32.4 sqlparse-0.4.4 statsmodels-0.14.0 stopit-1.1.2 tabulate-0.9.0 threadpoolctl-3.2.0 throttler-1.2.2 toposort-1.10 traitlets-5.12.0 wrapt-1.15.0 yte-1.5.1
 
-$ pip install anvio-8.tar.gz
 
-Error
+#### (5) Common problems ####
 
-$ sudo rm -rf /Library/Developer/CommandLineTools
-$ xcode-select --install
-설치하는데 오래걸림
+skip!!
 
-$ clang --version
-Apple clang version 15.0.0 (clang-1500.0.40.1)
-Target: x86_64-apple-darwin22.6.0
-Thread model: posix
-InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+#### (6) Check your installation ####
 
-$ export CC=clang
-$ pip install anvio-8.tar.gz
+(anvio-8) foodlabui-iMac:~ foodlab$ anvi-self-test --suite mini
 
-성공..!
-
-## (6) Check your installation
-
-anvi-self-test --suite mini
 
 :: Output directory ...
 
-/var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4
+/var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmps0s039vu
 
 
 
@@ -285,7 +728,7 @@ NO THREADS FOR YOU! (well, ok. just one.)
 :: Anvi'o version ...
 
 Anvi'o .......................................: marie (v8)
-Python .......................................: 3.10.13
+Python .......................................: 3.11.5
 
 Profile database .............................: 38
 Contigs database .............................: 21
@@ -300,51 +743,45 @@ tRNA-seq database ............................: 2
 
 :: Initializing raw BAM files ...
 
-Sorted BAM File ..............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4/SAMPLE-01.bam
-BAM File Index ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4/SAMPLE-01.bam.bai
+Sorted BAM File ..............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmps0s039vu/SAMPLE-01.bam
+BAM File Index ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmps0s039vu/SAMPLE-01.bam.bai
 
-Sorted BAM File ..............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4/SAMPLE-02.bam
-BAM File Index ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4/SAMPLE-02.bam.bai
+Sorted BAM File ..............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmps0s039vu/SAMPLE-02.bam
+BAM File Index ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmps0s039vu/SAMPLE-02.bam.bai
 
-Sorted BAM File ..............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4/SAMPLE-03.bam
-BAM File Index ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp0kms6sh4/SAMPLE-03.bam.bai
+Sorted BAM File ..............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmps0s039vu/SAMPLE-03.bam
+BAM File Index ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmps0s039vu/SAMPLE-03.bam.bai
 
 
 
 :: Generating an EMPTY contigs database ...
 
-Input FASTA file .............................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/tests/sandbox/contigs.fa
-Name .........................................: Contigs DB for anvi'o mini self-test
-Description ..................................: No description is given
-Num threads for gene calling .................: 1                                                                   
+Traceback (most recent call last):
+  File "/Users/foodlab/miniconda3/envs/anvio-8/bin/anvi-gen-contigs-database", line 63, in <module>
+    main(args)
+  File "/Users/foodlab/miniconda3/envs/anvio-8/lib/python3.11/site-packages/anvio/terminal.py", line 915, in wrapper
+    program_method(*args, **kwargs)
+  File "/Users/foodlab/miniconda3/envs/anvio-8/bin/anvi-gen-contigs-database", line 32, in main
+    a.create(args)
+  File "/Users/foodlab/miniconda3/envs/anvio-8/lib/python3.11/site-packages/anvio/dbops.py", line 4304, in create
+    filesnpaths.is_file_fasta_formatted(contigs_fasta)
+  File "/Users/foodlab/miniconda3/envs/anvio-8/lib/python3.11/site-packages/anvio/filesnpaths.py", line 261, in is_file_fasta_formatted
+    f = u.SequenceSource(file_path)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/foodlab/miniconda3/envs/anvio-8/lib/python3.11/site-packages/anvio/fastalib.py", line 100, in __init__
+    self.file_pointer = io.open(self.fasta_file_path, 'rU', newline='')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid mode: 'rU'
 
 
-Config Error: An anvi'o function needs 'prodigal' to be installed on your system, but it   
-              doesn't seem to appear in your path :/ If you are certain you have it on your
-              system (for instance you can run it by typing 'prodigal' in your terminal    
-              window), you may want to send a detailed bug report. Sorry!                  
+Config Error: According to the exit code ('1'), anvi'o suspects that something may have gone
+              wrong while running your tests :/ We hope that the reason is clear to you from
+              the lines above. But if you don't see anything obvious, and especially if the 
+              test ended up running until the end with reasonable looking final results, you
+              shouldn't worry too much about this error. Life is short and we all can worry 
+              just a bit less.                                                              
 
-
-
-
-Config Error: According to the exit code ('255'), anvi'o suspects that something may have gone
-              wrong while running your tests :/ We hope that the reason is clear to you from  
-              the lines above. But if you don't see anything obvious, and especially if the   
-              test ended up running until the end with reasonable looking final results, you  
-              shouldn't worry too much about this error. Life is short and we all can worry   
-              just a bit less.                                                                
-
-
-
-
-
-
-$ conda install -c bioconda bioconductor-qvalue
-$ conda install -c r r-tidyverse
-$ conda install -c conda-forge r-optparse
-$ conda install diamond=0.9.14
-
-$ anvi-self-test --suite mini
+왜왜왜왜왜왜 어제랑 다른 Config error....
 
 
 
