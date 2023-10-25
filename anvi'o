@@ -339,6 +339,20 @@ Config Error: According to the exit code ('255'), anvi'o suspects that something
 
 
 
+$ conda install -c bioconda bioconductor-qvalue
+$ conda install -c r r-tidyverse
+$ conda install -c conda-forge r-optparse
+$ conda install diamond=0.9.14
+
+$ anvi-self-test --suite mini
+
+
+
+
+
+
+
+
 
 
 
