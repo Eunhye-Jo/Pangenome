@@ -1,0 +1,1621 @@
+#Last login: Fri Oct 27 12:09:58 on ttys000
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+(base) foodlabui-iMac:~ foodlab$ ls
+Applications		Downloads		OneDrive - pusan.ac.kr	miniconda3
+CytoscapeConfiguration	Library			Pictures		sratoolkit.3.0.0-mac64
+Desktop			Movies			Public			sratoolkit.tar.gz
+Documents		Music			anvio-8.tar.gz
+(base) foodlabui-iMac:~ foodlab$ cd Downloads/
+(base) foodlabui-iMac:Downloads foodlab$ mkdir Exercise
+(base) foodlabui-iMac:Downloads foodlab$ cd Exercise/
+(base) foodlabui-iMac:Exercise foodlab$ ls
+(base) foodlabui-iMac:Exercise foodlab$ curl -L https://figshare.com/ndownloader/files/31180186 \
+>      -o metagenomic-read-recruitment-data-pack.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+100  396M  100  396M    0     0  3449k      0  0:01:57  0:01:57 --:--:-- 5564k
+(base) foodlabui-iMac:Exercise foodlab$ tar -zxvf metagenomic-read-recruitment-data-pack.tar.gz 
+x metagenomic-read-recruitment-data-pack/
+x metagenomic-read-recruitment-data-pack/.DS_Store
+x metagenomic-read-recruitment-data-pack/genome.fa
+x metagenomic-read-recruitment-data-pack/metagenomes/
+x metagenomic-read-recruitment-data-pack/metagenomes/magdalena-R2.fastq
+x metagenomic-read-recruitment-data-pack/metagenomes/magdalena-R1.fastq
+x metagenomic-read-recruitment-data-pack/metagenomes/alejandra-R1.fastq
+x metagenomic-read-recruitment-data-pack/metagenomes/batuhan-R2.fastq
+x metagenomic-read-recruitment-data-pack/metagenomes/jonas-R2.fastq
+x metagenomic-read-recruitment-data-pack/metagenomes/jessika-R1.fastq
+x metagenomic-read-recruitment-data-pack/metagenomes/alejandra-R2.fastq
+x metagenomic-read-recruitment-data-pack/metagenomes/batuhan-R1.fastq
+x metagenomic-read-recruitment-data-pack/metagenomes/jessika-R2.fastq
+x metagenomic-read-recruitment-data-pack/metagenomes/jonas-R1.fastq
+(base) foodlabui-iMac:Exercise foodlab$ cd metagenomic-read-recruitment-data-pack
+(base) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ ls
+genome.fa	metagenomes
+(base) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-gen-contigs-database -f genome.fa \
+> -o genome.db
+-bash: anvi-gen-contigs-database: command not found
+(base) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ conda activate anvio-8
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-gen-contigs-database -f genome.fa -o genome.db
+Input FASTA file .............................: /Users/foodlab/Downloads/Exercise/metagenomic-read-recruitment-data-pack/genome.fa
+
+Anvi'o made things up for you
+===============================================
+You are generating a new anvi'o contigs database, but you are not specifying a
+project name for it. FINE. Anvi'o, in desperation, will use the input file name
+to set the project name for this contigs database (i.e., 'genome'). If you are
+not happy with that, feel free to kill and restart this process. If you are not
+happy with this name, but you don't like killing things either, maybe next time
+you should either name your FASTA files better, or use the `--project-name`
+parameter to set your desired name.
+
+Name .........................................: genome
+Description ..................................: No description is given
+Num threads for gene calling .................: 1                                                   
+
+Finding ORFs in contigs
+===============================================
+Genes ........................................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmphahiu2b7/contigs.genes
+Amino acid sequences .........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmphahiu2b7/contigs.amino_acid_sequences
+Log file .....................................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmphahiu2b7/00_log.txt
+
+CITATION
+===============================================
+Anvi'o will use 'prodigal' by Hyatt et al (doi:10.1186/1471-2105-11-119) to
+identify open reading frames in your data. When you publish your findings,
+please do not forget to properly credit their work.
+
+Result .......................................: Prodigal (v2.6.3) has identified 4970 genes.        
+
+                                                                                                     
+CONTIGS DB CREATE REPORT
+===============================================
+Split Length .................................: 20,000
+K-mer size ...................................: 4
+Skip gene calling? ...........................: False
+External gene calls provided? ................: False
+Ignoring internal stop codons? ...............: False
+Splitting pays attention to gene calls? ......: True
+Contigs with at least one gene call ..........: 1 of 1 (100.0%)                                      
+Contigs database .............................: A new database, genome.db, has been created.
+Number of contigs ............................: 1
+Number of splits .............................: 263
+Total number of nucleotides ..................: 5,273,097
+Gene calling step skipped ....................: False
+Splits broke genes (non-mindful mode) ........: False
+Desired split length (what the user wanted) ..: 20,000
+Average split length (what anvi'o gave back) .: 20,050
+
+✓ anvi-gen-contigs-database took 0:00:50.877774
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-run-ncbi-cogs -c genome.db --num-threads 4
+
+
+Config Error: None of the search methods this class could use, which include 'diamond,
+              blastp', seem to be available on your system :/                         
+
+
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ diamond
+-bash: diamond: command not found
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ conda install -y -c bioconda diamond
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /Users/foodlab/miniconda3/envs/anvio-8
+
+  added / updated specs:
+    - diamond
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    blast-2.6.0                |      boost1.64_2       113.0 MB  bioconda
+    diamond-2.1.8              |       h94ec1f5_0         2.9 MB  bioconda
+    ------------------------------------------------------------
+                                           Total:       115.9 MB
+
+The following NEW packages will be INSTALLED:
+
+  blast              bioconda/osx-64::blast-2.6.0-boost1.64_2 
+  diamond            bioconda/osx-64::diamond-2.1.8-h94ec1f5_0 
+
+
+
+Downloading and Extracting Packages:
+                                                                                                     
+Preparing transaction: done                                                                          
+Verifying transaction: done
+Executing transaction: done
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ conda install -y -c bioconda blastp
+Collecting package metadata (current_repodata.json): done
+Solving environment: unsuccessful initial attempt using frozen solve. Retrying with flexible solve.
+Collecting package metadata (repodata.json): done
+Solving environment: unsuccessful initial attempt using frozen solve. Retrying with flexible solve.
+
+PackagesNotFoundError: The following packages are not available from current channels:
+
+  - blastp
+
+Current channels:
+
+  - https://conda.anaconda.org/bioconda/osx-64
+  - https://conda.anaconda.org/bioconda/noarch
+  - https://repo.anaconda.com/pkgs/main/osx-64
+  - https://repo.anaconda.com/pkgs/main/noarch
+  - https://repo.anaconda.com/pkgs/r/osx-64
+  - https://repo.anaconda.com/pkgs/r/noarch
+
+To search for alternate channels that may provide the conda package you're
+looking for, navigate to
+
+    https://anaconda.org
+
+and use the search bar at the top of the page.
+
+
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ diamond --version
+diamond version 2.1.8
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ blastp --version
+USAGE
+  blastp [-h] [-help] [-import_search_strategy filename]
+    [-export_search_strategy filename] [-task task_name] [-db database_name]
+    [-dbsize num_letters] [-gilist filename] [-seqidlist filename]
+    [-negative_gilist filename] [-entrez_query entrez_query]
+    [-db_soft_mask filtering_algorithm] [-db_hard_mask filtering_algorithm]
+    [-subject subject_input_file] [-subject_loc range] [-query input_file]
+    [-out output_file] [-evalue evalue] [-word_size int_value]
+    [-gapopen open_penalty] [-gapextend extend_penalty]
+    [-qcov_hsp_perc float_value] [-max_hsps int_value]
+    [-xdrop_ungap float_value] [-xdrop_gap float_value]
+    [-xdrop_gap_final float_value] [-searchsp int_value]
+    [-sum_stats bool_value] [-seg SEG_options] [-soft_masking soft_masking]
+    [-matrix matrix_name] [-threshold float_value] [-culling_limit int_value]
+    [-best_hit_overhang float_value] [-best_hit_score_edge float_value]
+    [-window_size int_value] [-lcase_masking] [-query_loc range]
+    [-parse_deflines] [-outfmt format] [-show_gis]
+    [-num_descriptions int_value] [-num_alignments int_value]
+    [-line_length line_length] [-html] [-max_target_seqs num_sequences]
+    [-num_threads int_value] [-ungapped] [-remote] [-comp_based_stats compo]
+    [-use_sw_tback] [-version]
+
+DESCRIPTION
+   Protein-Protein BLAST 2.6.0+
+
+Use '-help' to print detailed descriptions of command line arguments
+========================================================================
+
+Error: Unknown argument: "-version"
+Error:  (CArgException::eInvalidArg) Unknown argument: "-version"
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ blastp -version
+blastp: 2.6.0+
+ Package: blast 2.6.0, build Dec  7 2016 15:12:09
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-run-ncbi-cogs -c genome.db --num-threads 4
+COG version ..................................: COG20
+COG data source ..............................: The anvi'o default.
+COG base directory ...........................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/COG
+
+
+Config Error: You don't seem to have any COG data setup in your COG data directory. Please
+              first run `anvi-setup-ncbi-cogs` to take care of that.                      
+
+
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-setup-ncbi-cogs
+COG version ..................................: COG20
+COG data source ..............................: The anvi'o default.
+COG base directory ...........................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/COG
+
+WARNING
+===============================================
+This program will first check whether you have all the raw files, and then will
+attempt to regenerate everything that is necessary from them.
+
+Downloaded successfully ......................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/COG/COG20/RAW_DATA_FROM_NCBI/cog-20.cog.csv
+Downloaded successfully ......................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/COG/COG20/RAW_DATA_FROM_NCBI/cog-20.def.tab
+Downloaded successfully ......................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/COG/COG20/RAW_DATA_FROM_NCBI/fun-20.tab
+Downloaded successfully ......................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/COG/COG20/RAW_DATA_FROM_NCBI/checksum.md5.txt
+Downloaded successfully ......................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/COG/COG20/RAW_DATA_FROM_NCBI/cog-20.fa.gz
+Diamond log ..................................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/COG/COG20/DB_DIAMOND/log.txt
+
+DIAMOND MAKEDB
+===============================================
+Diamond search DB ............................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/COG/COG20/DB_DIAMOND/COG.dmnd
+BLAST log ....................................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/COG/COG20/DB_BLAST/log.txt
+
+NCBI BLAST MAKEDB
+===============================================
+BLAST search db ..............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpzw48youd
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-run-ncbi-cogs -c genome.db --num-threads 4
+COG version ..................................: COG20
+COG data source ..............................: The anvi'o default.
+COG base directory ...........................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/COG
+COG data directory ...........................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/COG/COG20
+Searching with ...............................: diamond
+Directory to store temporary files ...........: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp384xryee
+Directory will be removed after the run ......: True
+                                                                                                     
+DIAMOND BLASTP
+===============================================
+Additional params for blastp .................: 
+Search results ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp384xryee/diamond-search-results.txt
+
+DIAMOND VIEW
+===============================================
+Diamond  tabular output file .................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmp384xryee/diamond-search-results.txt
+COG version ..................................: COG20
+COG data source ..............................: The anvi'o default.
+COG base directory ...........................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/COG
+Gene functions ...............................: 8,970 function calls from 3 sources (COG20_CATEGORY, 
+                                                COG20_FUNCTION, COG20_PATHWAY) for 4,043 unique gene
+                                                calls have been added to the contigs database.
+
+✓ anvi-run-ncbi-cogs took 0:00:32.334823
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-run-hmms -c genome.db
+Contigs DB ...................................: genome.db                                            
+HMM sources ..................................: Bacteria_71, Archaea_76, Ribosomal_RNA_23S,
+                                                Ribosomal_RNA_28S, Ribosomal_RNA_5S,
+                                                Ribosomal_RNA_16S, Ribosomal_RNA_12S, Protista_83,
+                                                Ribosomal_RNA_18S
+Alphabet/context target found ................: RNA:CONTIG
+Alphabet/context target found ................: AA:GENE                                              
+Target sequences determined ..................: 1 sequences for RNA:CONTIG; 4,970 sequences for      
+                                                AA:GENE
+
+HMM Profiling for Bacteria_71
+===============================================
+Reference ....................................: Lee modified,
+                                                https://doi.org/10.1093/bioinformatics/btz188
+Kind .........................................: singlecopy
+Alphabet .....................................: AA
+Context ......................................: GENE
+Domain .......................................: bacteria
+HMM model path ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcv1nm1fa/Bacteria_71.hmm
+Number of genes in HMM model .................: 71
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: hmmscan
+Temporary work dir ...........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpmmv31tm_
+Log file for thread 0 ........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpmmv31tm_/AA_gene_sequences.fa.0_log
+                                                                                                     
+Done with Bacteria_71 🎊
+
+Number of raw hits in table file .............: 71                                                   
+Number of weak hits removed by HMMER parser ..: 0
+Number of hits in annotation dict  ...........: 71
+
+HMM Profiling for Archaea_76
+===============================================
+Reference ....................................: Lee, https://doi.org/10.1093/bioinformatics/btz188
+Kind .........................................: singlecopy
+Alphabet .....................................: AA
+Context ......................................: GENE
+Domain .......................................: archaea
+HMM model path ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcv1nm1fa/Archaea_76.hmm
+Number of genes in HMM model .................: 76
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: hmmscan
+Temporary work dir ...........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpmmv31tm_
+Log file for thread 0 ........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpmmv31tm_/AA_gene_sequences.fa.0_log
+                                                                                                         
+Done with Archaea_76 🎊
+
+Number of raw hits in table file .............: 37                                                       
+Number of weak hits removed by HMMER parser ..: 0
+Number of hits in annotation dict  ...........: 37
+                                                                                                         
+HMM Profiling for Ribosomal_RNA_23S
+===============================================
+Reference ....................................: Seeman T, https://github.com/tseemann/barrnap
+Kind .........................................: Ribosomal_RNA_23S
+Alphabet .....................................: RNA
+Context ......................................: CONTIG
+Domain .......................................: N/A
+HMM model path ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcv1nm1fa/Ribosomal_RNA_23S.hmm
+Number of genes in HMM model .................: 2
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: nhmmscan
+Temporary work dir ...........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcl994h3u
+Log file for thread 0 ........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcl994h3u/RNA_contig_sequences.fa.0_log
+                                                                                                         
+Done with Ribosomal_RNA_23S 🎊
+
+Number of raw hits in table file .............: 14                                                       
+Number of weak hits removed by HMMER parser ..: 0
+Number of hits in annotation dict  ...........: 14
+Pruned .......................................: 7 out of 14 hits were removed due to redundancy
+Gene calls added to db .......................: 7 (from source "Ribosomal_RNA_23S")                      
+                                                                                                         
+HMM Profiling for Ribosomal_RNA_28S
+===============================================
+Reference ....................................: Seeman T, https://github.com/tseemann/barrnap
+Kind .........................................: Ribosomal_RNA_28S
+Alphabet .....................................: RNA
+Context ......................................: CONTIG
+Domain .......................................: N/A
+HMM model path ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcv1nm1fa/Ribosomal_RNA_28S.hmm
+Number of genes in HMM model .................: 1
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: nhmmscan
+Temporary work dir ...........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcl994h3u
+Log file for thread 0 ........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcl994h3u/RNA_contig_sequences.fa.0_log
+                                                                                                         
+Done with Ribosomal_RNA_28S 🎊
+
+Number of raw hits in table file .............: 0                                                        
+
+* The HMM source 'Ribosomal_RNA_28S' returned 0 hits. SAD (but it's OK).
+                                                                                                         
+HMM Profiling for Ribosomal_RNA_5S
+===============================================
+Reference ....................................: Seeman T, https://github.com/tseemann/barrnap
+Kind .........................................: Ribosomal_RNA_5S
+Alphabet .....................................: RNA
+Context ......................................: CONTIG
+Domain .......................................: N/A
+HMM model path ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcv1nm1fa/Ribosomal_RNA_5S.hmm
+Number of genes in HMM model .................: 5
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: nhmmscan
+Temporary work dir ...........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcl994h3u
+Log file for thread 0 ........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcl994h3u/RNA_contig_sequences.fa.0_log
+                                                                                                         
+Done with Ribosomal_RNA_5S 🎊
+
+Number of raw hits in table file .............: 0                                                        
+
+* The HMM source 'Ribosomal_RNA_5S' returned 0 hits. SAD (but it's OK).
+                                                                                                         
+HMM Profiling for Ribosomal_RNA_16S
+===============================================
+Reference ....................................: Seeman T, https://github.com/tseemann/barrnap
+Kind .........................................: Ribosomal_RNA_16S
+Alphabet .....................................: RNA
+Context ......................................: CONTIG
+Domain .......................................: N/A
+HMM model path ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcv1nm1fa/Ribosomal_RNA_16S.hmm
+Number of genes in HMM model .................: 3
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: nhmmscan
+Temporary work dir ...........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcl994h3u
+Log file for thread 0 ........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcl994h3u/RNA_contig_sequences.fa.0_log
+                                                                                                         
+Done with Ribosomal_RNA_16S 🎊
+
+Number of raw hits in table file .............: 7                                                        
+Number of weak hits removed by HMMER parser ..: 0
+Number of hits in annotation dict  ...........: 7
+Gene calls added to db .......................: 7 (from source "Ribosomal_RNA_16S")                      
+                                                                                                         
+HMM Profiling for Ribosomal_RNA_12S
+===============================================
+Reference ....................................: Seeman T, https://github.com/tseemann/barrnap
+Kind .........................................: Ribosomal_RNA_12S
+Alphabet .....................................: RNA
+Context ......................................: CONTIG
+Domain .......................................: N/A
+HMM model path ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcv1nm1fa/Ribosomal_RNA_12S.hmm
+Number of genes in HMM model .................: 1
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: nhmmscan
+Temporary work dir ...........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcl994h3u
+Log file for thread 0 ........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcl994h3u/RNA_contig_sequences.fa.0_log
+                                                                                                         
+Done with Ribosomal_RNA_12S 🎊
+
+Number of raw hits in table file .............: 0                                                        
+
+* The HMM source 'Ribosomal_RNA_12S' returned 0 hits. SAD (but it's OK).
+                                                                                                         
+HMM Profiling for Protista_83
+===============================================
+Reference ....................................: Delmont, http://merenlab.org/delmont-euk-scgs
+Kind .........................................: singlecopy
+Alphabet .....................................: AA
+Context ......................................: GENE
+Domain .......................................: eukarya
+HMM model path ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcv1nm1fa/Protista_83.hmm
+Number of genes in HMM model .................: 83
+Noise cutoff term(s) .........................: -E 1e-25
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: hmmscan
+Temporary work dir ...........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpmmv31tm_
+Log file for thread 0 ........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpmmv31tm_/AA_gene_sequences.fa.0_log
+                                                                                                         
+Done with Protista_83 🎊
+
+Number of raw hits in table file .............: 5                                                        
+Number of weak hits removed by HMMER parser ..: 0
+Number of hits in annotation dict  ...........: 5
+                                                                                                         
+HMM Profiling for Ribosomal_RNA_18S
+===============================================
+Reference ....................................: Seeman T, https://github.com/tseemann/barrnap
+Kind .........................................: Ribosomal_RNA_18S
+Alphabet .....................................: RNA
+Context ......................................: CONTIG
+Domain .......................................: N/A
+HMM model path ...............................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcv1nm1fa/Ribosomal_RNA_18S.hmm
+Number of genes in HMM model .................: 1
+Noise cutoff term(s) .........................: --cut_ga
+Number of CPUs will be used for search .......: 1
+HMMer program used for search ................: nhmmscan
+Temporary work dir ...........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcl994h3u
+Log file for thread 0 ........................: /var/folders/8l/fj0p8zsj2fzgbzcb77jds9q00000gn/T/tmpcl994h3u/RNA_contig_sequences.fa.0_log
+                                                                                                         
+Done with Ribosomal_RNA_18S 🎊
+
+Number of raw hits in table file .............: 0                                                        
+
+* The HMM source 'Ribosomal_RNA_18S' returned 0 hits. SAD (but it's OK).
+                                                                                                         
+✓ anvi-run-hmms took 0:00:39.172709
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-run-scg-taxonomy -c genome.db --num-threads 4
+                                                                                                         
+
+Config Error: OK. It is very likley that if you run `anvi-setup-scg-taxonomy` first you will
+              be golden. Because even though anvi'o found the directory for taxonomy        
+              headquarters, your setup seems to be missing 22 of 22 databases required for  
+              everything to work with the current genes configuration of this class (sources
+              say this is a record, FYI).                                                   
+
+
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-setup-scg-taxonomy
+                                                                                                         
+GTDB DATABASE VERSIONS
+===============================================
+Known releases ...............................: v214.1, v207.0, v202.0, v95.0, v89.0
+Target release for setup .....................: v214.1
+
+WARNING
+===============================================
+Please remember that the data anvi'o uses for SCG taxonomy is a courtesy of The
+Genome Taxonomy Database (GTDB), an initiative to establish a standardised
+microbial taxonomy based on genome phylogeny, primarly funded by tax payers in
+Australia. Please don't forget to cite the original work, doi:10.1038/nbt.4229
+by Parks et al to explicitly mention the source of databases anvi'o relies upon
+to estimate genome level taxonomy. If you are not sure how it should look like
+in your methods sections, anvi'o developers will be happy to help you if you
+can't find any published example to get inspiration.
+
+
+WARNING
+===============================================
+Anvi'o found your FASTA files in place, but not the databases. Now it will
+generate all the search databases using the existing FASTA files.
+
+* Every FASTA is now turned into a fancy search database. It means you are now                           
+  allowed to run `anvi-run-scg-taxonomy` on anvi'o contigs databases. This
+  workflow is very new, and there are caveats to it just like every other
+  computational approach you use to make sense of complex 'omics data. To better
+  understand those caveats you should read our online documentation a bit. If
+  you see things that concerns you, please let anvi'o developers know. They love
+  bad news. If you get good results from this workflow, thank to those who
+  contributed to the GTDB.
+
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ 
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-setup-scg-taxonomy --reset
+                                                                                                         
+GTDB DATABASE VERSIONS
+===============================================
+Known releases ...............................: v214.1, v207.0, v202.0, v95.0, v89.0
+Target release for setup .....................: v214.1
+
+WARNING
+===============================================
+The existing directory for SCG taxonomy data dir has been removed. Just so you
+know.
+
+
+WARNING
+===============================================
+Please remember that the data anvi'o uses for SCG taxonomy is a courtesy of The
+Genome Taxonomy Database (GTDB), an initiative to establish a standardised
+microbial taxonomy based on genome phylogeny, primarly funded by tax payers in
+Australia. Please don't forget to cite the original work, doi:10.1038/nbt.4229
+by Parks et al to explicitly mention the source of databases anvi'o relies upon
+to estimate genome level taxonomy. If you are not sure how it should look like
+in your methods sections, anvi'o developers will be happy to help you if you
+can't find any published example to get inspiration.
+
+Local directory to setup .....................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/SCG_TAXONOMY/GTDB
+Reset the directory first ....................: True
+
+Remote database ..............................: GTDB
+Database version .............................: v214.1
+Base URL .....................................: https://data.ace.uq.edu.au/public/gtdb/data/releases/release214/214.1
+GTDB release found ...........................: v214.1 (Released Jun 9th, 2023)                          
+Downloaded successfully ......................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/SCG_TAXONOMY/GTDB/MSA_ARCHAEA.tar.gz
+Downloaded successfully ......................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/SCG_TAXONOMY/GTDB/MSA_BACTERIA.tar.gz
+Downloaded successfully ......................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/SCG_TAXONOMY/GTDB/TAX_ARCHAEA.tsv
+Downloaded successfully ......................: /Users/foodlab/miniconda3/envs/anvio-8/lib/python3.10/site-packages/anvio/data/misc/SCG_TAXONOMY/GTDB/TAX_BACTERIA.tsv
+* 421 of 4416 seq in ar53_r214_reps_TIGR01020.faa were all gaps and removed.                             
+* 450 of 4416 seq in ar53_r214_reps_TIGR01008.faa were all gaps and removed.                             
+* 407 of 4416 seq in ar53_r214_reps_PF00410.20.faa were all gaps and removed.                            
+* 6563 of 80789 seq in bac120_r214_reps_TIGR00615.faa were all gaps and removed.                         
+* 11900 of 80789 seq in bac120_r214_reps_TIGR03725.faa were all gaps and removed.                        
+* 11236 of 80789 seq in bac120_r214_reps_PF03726.15.faa were all gaps and removed.                       
+* 6874 of 80789 seq in bac120_r214_reps_TIGR00006.faa were all gaps and removed.                         
+* 6406 of 80789 seq in bac120_r214_reps_TIGR00166.faa were all gaps and removed.                         
+* 18015 of 80789 seq in bac120_r214_reps_TIGR00416.faa were all gaps and removed.                        
+* 9176 of 80789 seq in bac120_r214_reps_TIGR01087.faa were all gaps and removed.                         
+* 7622 of 80789 seq in bac120_r214_reps_TIGR00414.faa were all gaps and removed.                         
+* 12251 of 80789 seq in bac120_r214_reps_TIGR01044.faa were all gaps and removed.                        
+* 6618 of 80789 seq in bac120_r214_reps_TIGR00158.faa were all gaps and removed.                         
+* 605 of 4416 seq in ar53_r214_reps_TIGR02338.faa were all gaps and removed.                             
+* 11485 of 80789 seq in bac120_r214_reps_TIGR01079.faa were all gaps and removed.                        
+* 8159 of 80789 seq in bac120_r214_reps_TIGR00398.faa were all gaps and removed.                         
+* 11357 of 80789 seq in bac120_r214_reps_TIGR01082.faa were all gaps and removed.                        
+* 6700 of 80789 seq in bac120_r214_reps_TIGR00029.faa were all gaps and removed.                         
+* 355 of 4416 seq in ar53_r214_reps_PF01200.19.faa were all gaps and removed.                            
+* 6931 of 80789 seq in bac120_r214_reps_TIGR03723.faa were all gaps and removed.                         
+* 9873 of 80789 seq in bac120_r214_reps_TIGR00362.faa were all gaps and removed.                         
+* 904 of 4416 seq in ar53_r214_reps_TIGR03626.faa were all gaps and removed.                             
+* 913 of 4416 seq in ar53_r214_reps_TIGR00111.faa were all gaps and removed.                             
+* 12855 of 80789 seq in bac120_r214_reps_TIGR02013.faa were all gaps and removed.                        
+* 530 of 4416 seq in ar53_r214_reps_TIGR00064.faa were all gaps and removed.                             
+* 8070 of 80789 seq in bac120_r214_reps_TIGR02012.faa were all gaps and removed.                         
+* 1616 of 4416 seq in ar53_r214_reps_TIGR03627.faa were all gaps and removed.                            
+* 408 of 4416 seq in ar53_r214_reps_TIGR00448.faa were all gaps and removed.                             
+* 11137 of 80789 seq in bac120_r214_reps_TIGR03654.faa were all gaps and removed.                        
+* 333 of 4416 seq in ar53_r214_reps_TIGR01018.faa were all gaps and removed.                             
+* 416 of 4416 seq in ar53_r214_reps_PF01280.21.faa were all gaps and removed.                            
+* 7579 of 80789 seq in bac120_r214_reps_TIGR00460.faa were all gaps and removed.                         
+* 10577 of 80789 seq in bac120_r214_reps_TIGR02075.faa were all gaps and removed.                        
+* 15044 of 80789 seq in bac120_r214_reps_TIGR00138.faa were all gaps and removed.                        
+* 8913 of 80789 seq in bac120_r214_reps_TIGR01391.faa were all gaps and removed.                         
+* 11190 of 80789 seq in bac120_r214_reps_TIGR00064.faa were all gaps and removed.                        
+* 7251 of 80789 seq in bac120_r214_reps_TIGR00059.faa were all gaps and removed.                         
+* 20745 of 80789 seq in bac120_r214_reps_TIGR00717.faa were all gaps and removed.                        
+* 11773 of 80789 seq in bac120_r214_reps_TIGR00065.faa were all gaps and removed.                        
+* 468 of 4416 seq in ar53_r214_reps_PF00900.21.faa were all gaps and removed.                            
+* 9904 of 80789 seq in bac120_r214_reps_TIGR00663.faa were all gaps and removed.                         
+* 9692 of 80789 seq in bac120_r214_reps_TIGR03632.faa were all gaps and removed.                         
+* 871 of 4416 seq in ar53_r214_reps_TIGR03680.faa were all gaps and removed.                             
+* 477 of 4416 seq in ar53_r214_reps_PF01015.19.faa were all gaps and removed.                            
+* 436 of 4416 seq in ar53_r214_reps_TIGR00982.faa were all gaps and removed.                             
+* 18572 of 80789 seq in bac120_r214_reps_TIGR01146.faa were all gaps and removed.                        
+* 7527 of 80789 seq in bac120_r214_reps_TIGR01393.faa were all gaps and removed.                         
+* 11213 of 80789 seq in bac120_r214_reps_TIGR03625.faa were all gaps and removed.                        
+* 6190 of 80789 seq in bac120_r214_reps_TIGR01032.faa were all gaps and removed.                         
+* 399 of 4416 seq in ar53_r214_reps_TIGR00405.faa were all gaps and removed.                             
+* 1469 of 4416 seq in ar53_r214_reps_TIGR00373.faa were all gaps and removed.                            
+* 7293 of 80789 seq in bac120_r214_reps_TIGR00472.faa were all gaps and removed.                         
+* 6506 of 80789 seq in bac120_r214_reps_TIGR02729.faa were all gaps and removed.                         
+* 6538 of 80789 seq in bac120_r214_reps_TIGR00116.faa were all gaps and removed.                         
+* 8426 of 80789 seq in bac120_r214_reps_TIGR03594.faa were all gaps and removed.                         
+* 1142 of 4416 seq in ar53_r214_reps_TIGR02389.faa were all gaps and removed.                            
+* 11946 of 80789 seq in bac120_r214_reps_TIGR00922.faa were all gaps and removed.                        
+* 5497 of 80789 seq in bac120_r214_reps_TIGR00088.faa were all gaps and removed.                         
+* 11932 of 80789 seq in bac120_r214_reps_TIGR00459.faa were all gaps and removed.                        
+* 10020 of 80789 seq in bac120_r214_reps_TIGR01021.faa were all gaps and removed.                        
+* 543 of 4416 seq in ar53_r214_reps_TIGR01046.faa were all gaps and removed.                             
+* 11804 of 80789 seq in bac120_r214_reps_TIGR01009.faa were all gaps and removed.                        
+* 762 of 4416 seq in ar53_r214_reps_TIGR01052.faa were all gaps and removed.                             
+* 10777 of 80789 seq in bac120_r214_reps_PF00466.21.faa were all gaps and removed.                       
+* 11814 of 80789 seq in bac120_r214_reps_TIGR00115.faa were all gaps and removed.                        
+* 11650 of 80789 seq in bac120_r214_reps_TIGR01394.faa were all gaps and removed.                        
+* 6204 of 80789 seq in bac120_r214_reps_TIGR00061.faa were all gaps and removed.                         
+* 13639 of 80789 seq in bac120_r214_reps_TIGR00539.faa were all gaps and removed.                        
+* 11922 of 80789 seq in bac120_r214_reps_TIGR01169.faa were all gaps and removed.                        
+* 11539 of 80789 seq in bac120_r214_reps_TIGR01632.faa were all gaps and removed.                        
+* 402 of 4416 seq in ar53_r214_reps_PF00687.22.faa were all gaps and removed.                            
+* 16546 of 80789 seq in bac120_r214_reps_TIGR02273.faa were all gaps and removed.                        
+* 4724 of 80789 seq in bac120_r214_reps_TIGR00496.faa were all gaps and removed.                         
+* 19120 of 80789 seq in bac120_r214_reps_TIGR01039.faa were all gaps and removed.                        
+* 6787 of 80789 seq in bac120_r214_reps_TIGR01011.faa were all gaps and removed.                         
+* 10744 of 80789 seq in bac120_r214_reps_TIGR00643.faa were all gaps and removed.                        
+* 7147 of 80789 seq in bac120_r214_reps_TIGR00086.faa were all gaps and removed.                         
+* 7709 of 80789 seq in bac120_r214_reps_TIGR00092.faa were all gaps and removed.                         
+* 11674 of 80789 seq in bac120_r214_reps_TIGR01171.faa were all gaps and removed.                        
+* 11721 of 80789 seq in bac120_r214_reps_TIGR01164.faa were all gaps and removed.                        
+* 346 of 4416 seq in ar53_r214_reps_PF01000.27.faa were all gaps and removed.                            
+* 428 of 4416 seq in ar53_r214_reps_TIGR00037.faa were all gaps and removed.                             
+* 10595 of 80789 seq in bac120_r214_reps_PF01025.20.faa were all gaps and removed.                       
+* 6443 of 80789 seq in bac120_r214_reps_TIGR00468.faa were all gaps and removed.                         
+* 883 of 4416 seq in ar53_r214_reps_TIGR03674.faa were all gaps and removed.                             
+* 7587 of 80789 seq in bac120_r214_reps_TIGR01951.faa were all gaps and removed.                         
+* 5312 of 80789 seq in bac120_r214_reps_TIGR01953.faa were all gaps and removed.                         
+* 7296 of 80789 seq in bac120_r214_reps_TIGR00442.faa were all gaps and removed.                         
+* 612 of 4416 seq in ar53_r214_reps_TIGR03676.faa were all gaps and removed.                             
+* 7946 of 80789 seq in bac120_r214_reps_TIGR00456.faa were all gaps and removed.                         
+* 9526 of 80789 seq in bac120_r214_reps_TIGR00250.faa were all gaps and removed.                         
+* 702 of 4416 seq in ar53_r214_reps_TIGR02390.faa were all gaps and removed.                             
+* 8730 of 80789 seq in bac120_r214_reps_TIGR00084.faa were all gaps and removed.                         
+* 12057 of 80789 seq in bac120_r214_reps_TIGR00090.faa were all gaps and removed.                        
+* 9407 of 80789 seq in bac120_r214_reps_TIGR01017.faa were all gaps and removed.                         
+* 2448 of 4416 seq in ar53_r214_reps_TIGR03673.faa were all gaps and removed.                            
+* 7480 of 80789 seq in bac120_r214_reps_TIGR00043.faa were all gaps and removed.                         
+* 11560 of 80789 seq in bac120_r214_reps_TIGR03953.faa were all gaps and removed.                        
+* 9806 of 80789 seq in bac120_r214_reps_TIGR00095.faa were all gaps and removed.                         
+* 1278 of 4416 seq in ar53_r214_reps_TIGR03672.faa were all gaps and removed.                            
+* 787 of 4416 seq in ar53_r214_reps_TIGR02236.faa were all gaps and removed.                             
+* 5446 of 80789 seq in bac120_r214_reps_TIGR00487.faa were all gaps and removed.                         
+* 742 of 4416 seq in ar53_r214_reps_TIGR03670.faa were all gaps and removed.                             
+* 419 of 4416 seq in ar53_r214_reps_PF01090.20.faa were all gaps and removed.                            
+* 13050 of 80789 seq in bac120_r214_reps_TIGR00083.faa were all gaps and removed.                        
+* 7946 of 80789 seq in bac120_r214_reps_TIGR00054.faa were all gaps and removed.                         
+* 10830 of 80789 seq in bac120_r214_reps_PF00410.20.faa were all gaps and removed.                       
+* 17554 of 80789 seq in bac120_r214_reps_TIGR00928.faa were all gaps and removed.                        
+* 891 of 4416 seq in ar53_r214_reps_TIGR00967.faa were all gaps and removed.                             
+* 7642 of 80789 seq in bac120_r214_reps_TIGR00082.faa were all gaps and removed.                         
+* 10047 of 80789 seq in bac120_r214_reps_TIGR00445.faa were all gaps and removed.                        
+* 698 of 4416 seq in ar53_r214_reps_TIGR03671.faa were all gaps and removed.                             
+* 12162 of 80789 seq in bac120_r214_reps_TIGR01029.faa were all gaps and removed.                        
+* 11683 of 80789 seq in bac120_r214_reps_TIGR00337.faa were all gaps and removed.                        
+* 14668 of 80789 seq in bac120_r214_reps_TIGR00436.faa were all gaps and removed.                        
+* 6780 of 80789 seq in bac120_r214_reps_TIGR00344.faa were all gaps and removed.                         
+* 1042 of 4416 seq in ar53_r214_reps_TIGR00323.faa were all gaps and removed.                            
+* 6541 of 80789 seq in bac120_r214_reps_TIGR01066.faa were all gaps and removed.                         
+* 15262 of 80789 seq in bac120_r214_reps_TIGR00634.faa were all gaps and removed.                        
+* 355 of 4416 seq in ar53_r214_reps_PF04919.13.faa were all gaps and removed.                            
+* 9586 of 80789 seq in bac120_r214_reps_TIGR00967.faa were all gaps and removed.                         
+* 10216 of 80789 seq in bac120_r214_reps_TIGR02432.faa were all gaps and removed.                        
+* 11275 of 80789 seq in bac120_r214_reps_TIGR00580.faa were all gaps and removed.                        
+* 7846 of 80789 seq in bac120_r214_reps_TIGR02397.faa were all gaps and removed.                         
+* 417 of 4416 seq in ar53_r214_reps_PF00466.21.faa were all gaps and removed.                            
+* 6885 of 80789 seq in bac120_r214_reps_TIGR00755.faa were all gaps and removed.                         
+* 459 of 4416 seq in ar53_r214_reps_TIGR00134.faa were all gaps and removed.                             
+* 6761 of 80789 seq in bac120_r214_reps_PF00380.20.faa were all gaps and removed.                        
+* 7370 of 80789 seq in bac120_r214_reps_TIGR00635.faa were all gaps and removed.                         
+* 407 of 4416 seq in ar53_r214_reps_TIGR01028.faa were all gaps and removed.                             
+* 8853 of 80789 seq in bac120_r214_reps_TIGR00392.faa were all gaps and removed.                         
+* 416 of 4416 seq in ar53_r214_reps_TIGR00491.faa were all gaps and removed.                             
+* 12894 of 80789 seq in bac120_r214_reps_TIGR01059.faa were all gaps and removed.                        
+* 8888 of 80789 seq in bac120_r214_reps_TIGR00435.faa were all gaps and removed.                         
+* 9490 of 80789 seq in bac120_r214_reps_TIGR01071.faa were all gaps and removed.                         
+* 2025 of 4416 seq in ar53_r214_reps_TIGR03629.faa were all gaps and removed.                            
+* 17743 of 80789 seq in bac120_r214_reps_TIGR00186.faa were all gaps and removed.                        
+* 6998 of 80789 seq in bac120_r214_reps_TIGR00810.faa were all gaps and removed.                         
+* 13527 of 80789 seq in bac120_r214_reps_TIGR00964.faa were all gaps and removed.                        
+* 6223 of 80789 seq in bac120_r214_reps_TIGR00019.faa were all gaps and removed.                         
+* 10633 of 80789 seq in bac120_r214_reps_TIGR03263.faa were all gaps and removed.                        
+* 12192 of 80789 seq in bac120_r214_reps_TIGR00959.faa were all gaps and removed.                        
+* 1565 of 4416 seq in ar53_r214_reps_TIGR03628.faa were all gaps and removed.                            
+* 1291 of 4416 seq in ar53_r214_reps_TIGR00335.faa were all gaps and removed.                            
+* 8912 of 80789 seq in bac120_r214_reps_TIGR00420.faa were all gaps and removed.                         
+* 515 of 4416 seq in ar53_r214_reps_PF00827.18.faa were all gaps and removed.                            
+* 1069 of 4416 seq in ar53_r214_reps_TIGR01952.faa were all gaps and removed.                            
+* 11474 of 80789 seq in bac120_r214_reps_TIGR01510.faa were all gaps and removed.                        
+* 7587 of 80789 seq in bac120_r214_reps_TIGR00168.faa were all gaps and removed.                         
+* 18551 of 80789 seq in bac120_r214_reps_TIGR01302.faa were all gaps and removed.                        
+* 7720 of 80789 seq in bac120_r214_reps_TIGR00020.faa were all gaps and removed.                         
+* 8062 of 80789 seq in bac120_r214_reps_TIGR00593.faa were all gaps and removed.                         
+* 10428 of 80789 seq in bac120_r214_reps_TIGR01128.faa were all gaps and removed.                        
+* 467 of 4416 seq in ar53_r214_reps_TIGR00279.faa were all gaps and removed.                             
+* 763 of 4416 seq in ar53_r214_reps_TIGR00522.faa were all gaps and removed.                             
+* 465 of 4416 seq in ar53_r214_reps_PF07541.13.faa were all gaps and removed.                            
+* 8035 of 80789 seq in bac120_r214_reps_TIGR00431.faa were all gaps and removed.                         
+* 354 of 4416 seq in ar53_r214_reps_TIGR01012.faa were all gaps and removed.                             
+* 745 of 4416 seq in ar53_r214_reps_TIGR00483.faa were all gaps and removed.                             
+* 7403 of 80789 seq in bac120_r214_reps_TIGR00396.faa were all gaps and removed.                         
+* 18693 of 80789 seq in bac120_r214_reps_TIGR00382.faa were all gaps and removed.                        
+* 11275 of 80789 seq in bac120_r214_reps_TIGR01063.faa were all gaps and removed.                        
+* 7049 of 80789 seq in bac120_r214_reps_TIGR00194.faa were all gaps and removed.                         
+* 7379 of 80789 seq in bac120_r214_reps_TIGR00631.faa were all gaps and removed.                         
+* 10582 of 80789 seq in bac120_r214_reps_TIGR02191.faa were all gaps and removed.                        
+* 370 of 4416 seq in ar53_r214_reps_TIGR00291.faa were all gaps and removed.                             
+* 15259 of 80789 seq in bac120_r214_reps_TIGR02350.faa were all gaps and removed.                        
+* 3908 of 4416 seq in ar53_r214_reps_TIGR01171.faa were all gaps and removed.                            
+* 18158 of 80789 seq in bac120_r214_reps_PF02576.18.faa were all gaps and removed.                       
+* 14618 of 80789 seq in bac120_r214_reps_TIGR02386.faa were all gaps and removed.                        
+* 9412 of 80789 seq in bac120_r214_reps_TIGR00963.faa were all gaps and removed.                         
+* 1364 of 4416 seq in ar53_r214_reps_TIGR01213.faa were all gaps and removed.                            
+* 9623 of 80789 seq in bac120_r214_reps_TIGR02027.faa were all gaps and removed.                         
+                                                                                                         
+* Good news! The conversion dict and the FASTA files it requires seem to be in
+  place. Anvi'o is now ready to to merge 33 FASTA files that correspond to 22
+  SCGs, and create individual search databases for them.
+
+* Every FASTA is now turned into a fancy search database. It means you are now                           
+  allowed to run `anvi-run-scg-taxonomy` on anvi'o contigs databases. This
+  workflow is very new, and there are caveats to it just like every other
+  computational approach you use to make sense of complex 'omics data. To better
+  understand those caveats you should read our online documentation a bit. If
+  you see things that concerns you, please let anvi'o developers know. They love
+  bad news. If you get good results from this workflow, thank to those who
+  contributed to the GTDB.
+
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ bowtie2-build genome.fa genome
+-bash: bowtie2-build: command not found
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ bowtie2
+-bash: bowtie2: command not found
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ conda install -y -c bioconda bowtie2
+Collecting package metadata (current_repodata.json): done
+Solving environment: unsuccessful initial attempt using frozen solve. Retrying with flexible solve.
+Solving environment: unsuccessful attempt using repodata from current_repodata.json, retrying with next repodata source.
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /Users/foodlab/miniconda3/envs/anvio-8
+
+  added / updated specs:
+    - bowtie2
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    bowtie2-2.5.1              |  py310h7d4de36_0         1.4 MB  bioconda
+    gdbm-1.18                  |       hdccc71a_4         142 KB
+    perl-5.34.0                |       h435f0c2_2        15.0 MB
+    tbb-2021.8.0               |       ha357a0b_0         172 KB
+    ------------------------------------------------------------
+                                           Total:        16.6 MB
+
+The following NEW packages will be INSTALLED:
+
+  bowtie2            bioconda/osx-64::bowtie2-2.5.1-py310h7d4de36_0 
+  gdbm               pkgs/main/osx-64::gdbm-1.18-hdccc71a_4 
+  perl               pkgs/main/osx-64::perl-5.34.0-h435f0c2_2 
+  tbb                pkgs/main/osx-64::tbb-2021.8.0-ha357a0b_0 
+
+
+
+Downloading and Extracting Packages:
+                                                                                                         
+Preparing transaction: done                                                                              
+Verifying transaction: done                                                                              
+Executing transaction: done                                                                              
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ bowtie2
+No index, query, or output file specified!
+Bowtie 2 version 2.5.1 by Ben Langmead (langmea@cs.jhu.edu, www.cs.jhu.edu/~langmea)
+Usage: 
+  bowtie2 [options]* -x <bt2-idx> {-1 <m1> -2 <m2> | -U <r> | --interleaved <i> | -b <bam>} [-S <sam>]
+
+  <bt2-idx>  Index filename prefix (minus trailing .X.bt2).
+             NOTE: Bowtie 1 and Bowtie 2 indexes are not compatible.
+  <m1>       Files with #1 mates, paired with files in <m2>.
+             Could be gzip'ed (extension: .gz) or bzip2'ed (extension: .bz2).
+  <m2>       Files with #2 mates, paired with files in <m1>.
+             Could be gzip'ed (extension: .gz) or bzip2'ed (extension: .bz2).
+  <r>        Files with unpaired reads.
+             Could be gzip'ed (extension: .gz) or bzip2'ed (extension: .bz2).
+  <i>        Files with interleaved paired-end FASTQ/FASTA reads
+             Could be gzip'ed (extension: .gz) or bzip2'ed (extension: .bz2).
+  <bam>      Files are unaligned BAM sorted by read name.
+  <sam>      File for SAM output (default: stdout)
+
+  <m1>, <m2>, <r> can be comma-separated lists (no whitespace) and can be
+  specified many times.  E.g. '-U file1.fq,file2.fq -U file3.fq'.
+
+Options (defaults in parentheses):
+
+ Input:
+  -q                 query input files are FASTQ .fq/.fastq (default)
+  --tab5             query input files are TAB5 .tab5
+  --tab6             query input files are TAB6 .tab6
+  --qseq             query input files are in Illumina's qseq format
+  -f                 query input files are (multi-)FASTA .fa/.mfa
+  -r                 query input files are raw one-sequence-per-line
+  -F k:<int>,i:<int> query input files are continuous FASTA where reads
+                     are substrings (k-mers) extracted from a FASTA file <s>
+                     and aligned at offsets 1, 1+i, 1+2i ... end of reference
+  -c                 <m1>, <m2>, <r> are sequences themselves, not files
+  -s/--skip <int>    skip the first <int> reads/pairs in the input (none)
+  -u/--upto <int>    stop after first <int> reads/pairs (no limit)
+  -5/--trim5 <int>   trim <int> bases from 5'/left end of reads (0)
+  -3/--trim3 <int>   trim <int> bases from 3'/right end of reads (0)
+  --trim-to [3:|5:]<int> trim reads exceeding <int> bases from either 3' or 5' end
+                     If the read end is not specified then it defaults to 3 (0)
+  --phred33          qualities are Phred+33 (default)
+  --phred64          qualities are Phred+64
+  --int-quals        qualities encoded as space-delimited integers
+
+ Presets:                 Same as:
+  For --end-to-end:
+   --very-fast            -D 5 -R 1 -N 0 -L 22 -i S,0,2.50
+   --fast                 -D 10 -R 2 -N 0 -L 22 -i S,0,2.50
+   --sensitive            -D 15 -R 2 -N 0 -L 22 -i S,1,1.15 (default)
+   --very-sensitive       -D 20 -R 3 -N 0 -L 20 -i S,1,0.50
+
+  For --local:
+   --very-fast-local      -D 5 -R 1 -N 0 -L 25 -i S,1,2.00
+   --fast-local           -D 10 -R 2 -N 0 -L 22 -i S,1,1.75
+   --sensitive-local      -D 15 -R 2 -N 0 -L 20 -i S,1,0.75 (default)
+   --very-sensitive-local -D 20 -R 3 -N 0 -L 20 -i S,1,0.50
+
+ Alignment:
+  -N <int>           max # mismatches in seed alignment; can be 0 or 1 (0)
+  -L <int>           length of seed substrings; must be >3, <32 (22)
+  -i <func>          interval between seed substrings w/r/t read len (S,1,1.15)
+  --n-ceil <func>    func for max # non-A/C/G/Ts permitted in aln (L,0,0.15)
+  --dpad <int>       include <int> extra ref chars on sides of DP table (15)
+  --gbar <int>       disallow gaps within <int> nucs of read extremes (4)
+  --ignore-quals     treat all quality values as 30 on Phred scale (off)
+  --nofw             do not align forward (original) version of read (off)
+  --norc             do not align reverse-complement version of read (off)
+  --no-1mm-upfront   do not allow 1 mismatch alignments before attempting to
+                     scan for the optimal seeded alignments
+  --end-to-end       entire read must align; no clipping (on)
+   OR
+  --local            local alignment; ends might be soft clipped (off)
+
+ Scoring:
+  --ma <int>         match bonus (0 for --end-to-end, 2 for --local) 
+  --mp <int>         max penalty for mismatch; lower qual = lower penalty (6)
+  --np <int>         penalty for non-A/C/G/Ts in read/ref (1)
+  --rdg <int>,<int>  read gap open, extend penalties (5,3)
+  --rfg <int>,<int>  reference gap open, extend penalties (5,3)
+  --score-min <func> min acceptable alignment score w/r/t read length
+                     (G,20,8 for local, L,-0.6,-0.6 for end-to-end)
+
+ Reporting:
+  (default)          look for multiple alignments, report best, with MAPQ
+   OR
+  -k <int>           report up to <int> alns per read; MAPQ not meaningful
+   OR
+  -a/--all           report all alignments; very slow, MAPQ not meaningful
+
+ Effort:
+  -D <int>           give up extending after <int> failed extends in a row (15)
+  -R <int>           for reads w/ repetitive seeds, try <int> sets of seeds (2)
+
+ Paired-end:
+  -I/--minins <int>  minimum fragment length (0)
+  -X/--maxins <int>  maximum fragment length (500)
+  --fr/--rf/--ff     -1, -2 mates align fw/rev, rev/fw, fw/fw (--fr)
+  --no-mixed         suppress unpaired alignments for paired reads
+  --no-discordant    suppress discordant alignments for paired reads
+  --dovetail         concordant when mates extend past each other
+  --no-contain       not concordant when one mate alignment contains other
+  --no-overlap       not concordant when mates overlap at all
+
+ BAM:
+  --align-paired-reads
+                     Bowtie2 will, by default, attempt to align unpaired BAM reads.
+                     Use this option to align paired-end reads instead.
+  --preserve-tags    Preserve tags from the original BAM record by
+                     appending them to the end of the corresponding SAM output.
+
+ Output:
+  -t/--time          print wall-clock time taken by search phases
+  --un <path>        write unpaired reads that didn't align to <path>
+  --al <path>        write unpaired reads that aligned at least once to <path>
+  --un-conc <path>   write pairs that didn't align concordantly to <path>
+  --al-conc <path>   write pairs that aligned concordantly at least once to <path>
+    (Note: for --un, --al, --un-conc, or --al-conc, add '-gz' to the option name, e.g.
+    --un-gz <path>, to gzip compress output, or add '-bz2' to bzip2 compress output.)
+  --quiet            print nothing to stderr except serious errors
+  --met-file <path>  send metrics to file at <path> (off)
+  --met-stderr       send metrics to stderr (off)
+  --met <int>        report internal counters & metrics every <int> secs (1)
+  --no-unal          suppress SAM records for unaligned reads
+  --no-head          suppress header lines, i.e. lines starting with @
+  --no-sq            suppress @SQ header lines
+  --rg-id <text>     set read group id, reflected in @RG line and RG:Z: opt field
+  --rg <text>        add <text> ("lab:value") to @RG line of SAM header.
+                     Note: @RG line only printed when --rg-id is set.
+  --omit-sec-seq     put '*' in SEQ and QUAL fields for secondary alignments.
+  --sam-no-qname-trunc
+                     Suppress standard behavior of truncating readname at first whitespace 
+                     at the expense of generating non-standard SAM.
+  --xeq              Use '='/'X', instead of 'M,' to specify matches/mismatches in SAM record.
+  --soft-clipped-unmapped-tlen
+                     Exclude soft-clipped bases when reporting TLEN
+  --sam-append-comment
+                     Append FASTA/FASTQ comment to SAM record
+
+ Performance:
+  -p/--threads <int> number of alignment threads to launch (1)
+  --reorder          force SAM output order to match order of input reads
+  --mm               use memory-mapped I/O for index; many 'bowtie's can share
+
+ Other:
+  --qc-filter        filter out reads that are bad according to QSEQ filter
+  --seed <int>       seed for random number generator (0)
+  --non-deterministic
+                     seed rand. gen. arbitrarily instead of using read attributes
+  --version          print version information and quit
+  -h/--help          print this usage message
+(ERR): bowtie2-align exited with value 1
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ bowtie2-build genome.fa genome
+Settings:
+  Output files: "genome.*.bt2"
+  Line rate: 6 (line is 64 bytes)
+  Lines per side: 1 (side is 64 bytes)
+  Offset rate: 4 (one in 16)
+  FTable chars: 10
+  Strings: unpacked
+  Max bucket size: default
+  Max bucket size, sqrt multiplier: default
+  Max bucket size, len divisor: 4
+  Difference-cover sample period: 1024
+  Endianness: little
+  Actual local endianness: little
+  Sanity checking: disabled
+  Assertions: disabled
+  Random seed: 0
+  Sizeofs: void*:8, int:4, long:8, size_t:8
+Input files DNA, FASTA:
+  genome.fa
+Building a SMALL index
+Reading reference sizes
+  Time reading reference sizes: 00:00:00
+Calculating joined length
+Writing header
+Reserving space for joined string
+Joining reference sequences
+  Time to join reference sequences: 00:00:00
+bmax according to bmaxDivN setting: 1318274
+Using parameters --bmax 988706 --dcv 1024
+  Doing ahead-of-time memory usage test
+  Passed!  Constructing with these parameters: --bmax 988706 --dcv 1024
+Constructing suffix-array element generator
+Building DifferenceCoverSample
+  Building sPrime
+  Building sPrimeOrder
+  V-Sorting samples
+  V-Sorting samples time: 00:00:00
+  Allocating rank array
+  Ranking v-sort output
+  Ranking v-sort output time: 00:00:00
+  Invoking Larsson-Sadakane on ranks
+  Invoking Larsson-Sadakane on ranks time: 00:00:00
+  Sanity-checking and returning
+Building samples
+Reserving space for 12 sample suffixes
+Generating random suffixes
+QSorting 12 sample offsets, eliminating duplicates
+QSorting sample offsets, eliminating duplicates time: 00:00:00
+Multikey QSorting 12 samples
+  (Using difference cover)
+  Multikey QSorting samples time: 00:00:00
+Calculating bucket sizes
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Split 2, merged 7; iterating...
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Avg bucket size: 753299 (target: 988705)
+Converting suffix-array elements to index image
+Allocating ftab, absorbFtab
+Entering Ebwt loop
+Getting block 1 of 7
+  Reserving size (988706) for bucket 1
+  Calculating Z arrays for bucket 1
+  Entering block accumulator loop for bucket 1:
+  bucket 1: 10%
+  bucket 1: 20%
+  bucket 1: 30%
+  bucket 1: 40%
+  bucket 1: 50%
+  bucket 1: 60%
+  bucket 1: 70%
+  bucket 1: 80%
+  bucket 1: 90%
+  bucket 1: 100%
+  Sorting block of length 823316 for bucket 1
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 823317 for bucket 1
+Getting block 2 of 7
+  Reserving size (988706) for bucket 2
+  Calculating Z arrays for bucket 2
+  Entering block accumulator loop for bucket 2:
+  bucket 2: 10%
+  bucket 2: 20%
+  bucket 2: 30%
+  bucket 2: 40%
+  bucket 2: 50%
+  bucket 2: 60%
+  bucket 2: 70%
+  bucket 2: 80%
+  bucket 2: 90%
+  bucket 2: 100%
+  Sorting block of length 856730 for bucket 2
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 856731 for bucket 2
+Getting block 3 of 7
+  Reserving size (988706) for bucket 3
+  Calculating Z arrays for bucket 3
+  Entering block accumulator loop for bucket 3:
+  bucket 3: 10%
+  bucket 3: 20%
+  bucket 3: 30%
+  bucket 3: 40%
+  bucket 3: 50%
+  bucket 3: 60%
+  bucket 3: 70%
+  bucket 3: 80%
+  bucket 3: 90%
+  bucket 3: 100%
+  Sorting block of length 889019 for bucket 3
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 889020 for bucket 3
+Getting block 4 of 7
+  Reserving size (988706) for bucket 4
+  Calculating Z arrays for bucket 4
+  Entering block accumulator loop for bucket 4:
+  bucket 4: 10%
+  bucket 4: 20%
+  bucket 4: 30%
+  bucket 4: 40%
+  bucket 4: 50%
+  bucket 4: 60%
+  bucket 4: 70%
+  bucket 4: 80%
+  bucket 4: 90%
+  bucket 4: 100%
+  Sorting block of length 863110 for bucket 4
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 863111 for bucket 4
+Getting block 5 of 7
+  Reserving size (988706) for bucket 5
+  Calculating Z arrays for bucket 5
+  Entering block accumulator loop for bucket 5:
+  bucket 5: 10%
+  bucket 5: 20%
+  bucket 5: 30%
+  bucket 5: 40%
+  bucket 5: 50%
+  bucket 5: 60%
+  bucket 5: 70%
+  bucket 5: 80%
+  bucket 5: 90%
+  bucket 5: 100%
+  Sorting block of length 535339 for bucket 5
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 535340 for bucket 5
+Getting block 6 of 7
+  Reserving size (988706) for bucket 6
+  Calculating Z arrays for bucket 6
+  Entering block accumulator loop for bucket 6:
+  bucket 6: 10%
+  bucket 6: 20%
+  bucket 6: 30%
+  bucket 6: 40%
+  bucket 6: 50%
+  bucket 6: 60%
+  bucket 6: 70%
+  bucket 6: 80%
+  bucket 6: 90%
+  bucket 6: 100%
+  Sorting block of length 754221 for bucket 6
+  (Using difference cover)
+  Sorting block time: 00:00:01
+Returning block of 754222 for bucket 6
+Getting block 7 of 7
+  Reserving size (988706) for bucket 7
+  Calculating Z arrays for bucket 7
+  Entering block accumulator loop for bucket 7:
+  bucket 7: 10%
+  bucket 7: 20%
+  bucket 7: 30%
+  bucket 7: 40%
+  bucket 7: 50%
+  bucket 7: 60%
+  bucket 7: 70%
+  bucket 7: 80%
+  bucket 7: 90%
+  bucket 7: 100%
+  Sorting block of length 551356 for bucket 7
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 551357 for bucket 7
+Exited Ebwt loop
+fchr[A]: 0
+fchr[C]: 1298006
+fchr[G]: 2633232
+fchr[T]: 3972222
+fchr[$]: 5273097
+Exiting Ebwt::buildToDisk()
+Returning from initFromVector
+Wrote 5952240 bytes to primary EBWT file: genome.1.bt2.tmp
+Wrote 1318280 bytes to secondary EBWT file: genome.2.bt2.tmp
+Re-opening _in1 and _in2 as input streams
+Returning from Ebwt constructor
+Headers:
+    len: 5273097
+    bwtLen: 5273098
+    sz: 1318275
+    bwtSz: 1318275
+    lineRate: 6
+    offRate: 4
+    offMask: 0xfffffff0
+    ftabChars: 10
+    eftabLen: 20
+    eftabSz: 80
+    ftabLen: 1048577
+    ftabSz: 4194308
+    offsLen: 329569
+    offsSz: 1318276
+    lineSz: 64
+    sideSz: 64
+    sideBwtSz: 48
+    sideBwtLen: 192
+    numSides: 27465
+    numLines: 27465
+    ebwtTotLen: 1757760
+    ebwtTotSz: 1757760
+    color: 0
+    reverse: 0
+Total time for call to driver() for forward index: 00:00:02
+Reading reference sizes
+  Time reading reference sizes: 00:00:00
+Calculating joined length
+Writing header
+Reserving space for joined string
+Joining reference sequences
+  Time to join reference sequences: 00:00:00
+  Time to reverse reference sequence: 00:00:00
+bmax according to bmaxDivN setting: 1318274
+Using parameters --bmax 988706 --dcv 1024
+  Doing ahead-of-time memory usage test
+  Passed!  Constructing with these parameters: --bmax 988706 --dcv 1024
+Constructing suffix-array element generator
+Building DifferenceCoverSample
+  Building sPrime
+  Building sPrimeOrder
+  V-Sorting samples
+  V-Sorting samples time: 00:00:00
+  Allocating rank array
+  Ranking v-sort output
+  Ranking v-sort output time: 00:00:00
+  Invoking Larsson-Sadakane on ranks
+  Invoking Larsson-Sadakane on ranks time: 00:00:00
+  Sanity-checking and returning
+Building samples
+Reserving space for 12 sample suffixes
+Generating random suffixes
+QSorting 12 sample offsets, eliminating duplicates
+QSorting sample offsets, eliminating duplicates time: 00:00:00
+Multikey QSorting 12 samples
+  (Using difference cover)
+  Multikey QSorting samples time: 00:00:00
+Calculating bucket sizes
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Split 1, merged 7; iterating...
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Split 1, merged 1; iterating...
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Split 1, merged 0; iterating...
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Avg bucket size: 753299 (target: 988705)
+Converting suffix-array elements to index image
+Allocating ftab, absorbFtab
+Entering Ebwt loop
+Getting block 1 of 7
+  Reserving size (988706) for bucket 1
+  Calculating Z arrays for bucket 1
+  Entering block accumulator loop for bucket 1:
+  bucket 1: 10%
+  bucket 1: 20%
+  bucket 1: 30%
+  bucket 1: 40%
+  bucket 1: 50%
+  bucket 1: 60%
+  bucket 1: 70%
+  bucket 1: 80%
+  bucket 1: 90%
+  bucket 1: 100%
+  Sorting block of length 605618 for bucket 1
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 605619 for bucket 1
+Getting block 2 of 7
+  Reserving size (988706) for bucket 2
+  Calculating Z arrays for bucket 2
+  Entering block accumulator loop for bucket 2:
+  bucket 2: 10%
+  bucket 2: 20%
+  bucket 2: 30%
+  bucket 2: 40%
+  bucket 2: 50%
+  bucket 2: 60%
+  bucket 2: 70%
+  bucket 2: 80%
+  bucket 2: 90%
+  bucket 2: 100%
+  Sorting block of length 904780 for bucket 2
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 904781 for bucket 2
+Getting block 3 of 7
+  Reserving size (988706) for bucket 3
+  Calculating Z arrays for bucket 3
+  Entering block accumulator loop for bucket 3:
+  bucket 3: 10%
+  bucket 3: 20%
+  bucket 3: 30%
+  bucket 3: 40%
+  bucket 3: 50%
+  bucket 3: 60%
+  bucket 3: 70%
+  bucket 3: 80%
+  bucket 3: 90%
+  bucket 3: 100%
+  Sorting block of length 635368 for bucket 3
+  (Using difference cover)
+  Sorting block time: 00:00:01
+Returning block of 635369 for bucket 3
+Getting block 4 of 7
+  Reserving size (988706) for bucket 4
+  Calculating Z arrays for bucket 4
+  Entering block accumulator loop for bucket 4:
+  bucket 4: 10%
+  bucket 4: 20%
+  bucket 4: 30%
+  bucket 4: 40%
+  bucket 4: 50%
+  bucket 4: 60%
+  bucket 4: 70%
+  bucket 4: 80%
+  bucket 4: 90%
+  bucket 4: 100%
+  Sorting block of length 908821 for bucket 4
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 908822 for bucket 4
+Getting block 5 of 7
+  Reserving size (988706) for bucket 5
+  Calculating Z arrays for bucket 5
+  Entering block accumulator loop for bucket 5:
+  bucket 5: 10%
+  bucket 5: 20%
+  bucket 5: 30%
+  bucket 5: 40%
+  bucket 5: 50%
+  bucket 5: 60%
+  bucket 5: 70%
+  bucket 5: 80%
+  bucket 5: 90%
+  bucket 5: 100%
+  Sorting block of length 838736 for bucket 5
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 838737 for bucket 5
+Getting block 6 of 7
+  Reserving size (988706) for bucket 6
+  Calculating Z arrays for bucket 6
+  Entering block accumulator loop for bucket 6:
+  bucket 6: 10%
+  bucket 6: 20%
+  bucket 6: 30%
+  bucket 6: 40%
+  bucket 6: 50%
+  bucket 6: 60%
+  bucket 6: 70%
+  bucket 6: 80%
+  bucket 6: 90%
+  bucket 6: 100%
+  Sorting block of length 409805 for bucket 6
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 409806 for bucket 6
+Getting block 7 of 7
+  Reserving size (988706) for bucket 7
+  Calculating Z arrays for bucket 7
+  Entering block accumulator loop for bucket 7:
+  bucket 7: 10%
+  bucket 7: 20%
+  bucket 7: 30%
+  bucket 7: 40%
+  bucket 7: 50%
+  bucket 7: 60%
+  bucket 7: 70%
+  bucket 7: 80%
+  bucket 7: 90%
+  bucket 7: 100%
+  Sorting block of length 969963 for bucket 7
+  (Using difference cover)
+  Sorting block time: 00:00:00
+Returning block of 969964 for bucket 7
+Exited Ebwt loop
+fchr[A]: 0
+fchr[C]: 1298006
+fchr[G]: 2633232
+fchr[T]: 3972222
+fchr[$]: 5273097
+Exiting Ebwt::buildToDisk()
+Returning from initFromVector
+Wrote 5952240 bytes to primary EBWT file: genome.rev.1.bt2.tmp
+Wrote 1318280 bytes to secondary EBWT file: genome.rev.2.bt2.tmp
+Re-opening _in1 and _in2 as input streams
+Returning from Ebwt constructor
+Headers:
+    len: 5273097
+    bwtLen: 5273098
+    sz: 1318275
+    bwtSz: 1318275
+    lineRate: 6
+    offRate: 4
+    offMask: 0xfffffff0
+    ftabChars: 10
+    eftabLen: 20
+    eftabSz: 80
+    ftabLen: 1048577
+    ftabSz: 4194308
+    offsLen: 329569
+    offsSz: 1318276
+    lineSz: 64
+    sideSz: 64
+    sideBwtSz: 48
+    sideBwtLen: 192
+    numSides: 27465
+    numLines: 27465
+    ebwtTotLen: 1757760
+    ebwtTotSz: 1757760
+    color: 0
+    reverse: 1
+Total time for backward call to driver() for mirror index: 00:00:01
+Renaming genome.3.bt2.tmp to genome.3.bt2
+Renaming genome.4.bt2.tmp to genome.4.bt2
+Renaming genome.1.bt2.tmp to genome.1.bt2
+Renaming genome.2.bt2.tmp to genome.2.bt2
+Renaming genome.rev.1.bt2.tmp to genome.rev.1.bt2
+Renaming genome.rev.2.bt2.tmp to genome.rev.2.bt2
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ bowtie2 -x genome \
+>         -1 metagenomes/magdalena-R1.fastq \
+>         -2 metagenomes/magdalena-R2.fastq \
+>         -S magdalena.sam
+922605 reads; of these:
+  922605 (100.00%) were paired; of these:
+    99 (0.01%) aligned concordantly 0 times
+    858634 (93.07%) aligned concordantly exactly 1 time
+    63872 (6.92%) aligned concordantly >1 times
+    ----
+    99 pairs aligned concordantly 0 times; of these:
+      9 (9.09%) aligned discordantly 1 time
+    ----
+    90 pairs aligned 0 times concordantly or discordantly; of these:
+      180 mates make up the pairs; of these:
+        166 (92.22%) aligned 0 times
+        7 (3.89%) aligned exactly 1 time
+        7 (3.89%) aligned >1 times
+99.99% overall alignment rate
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ samtools view -F 4 \
+>               -bS magdalena.sam \
+>               -o magdalena-RAW.bam
+-bash: samtools: command not found
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ conda install -y -c bioconda samtools
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /Users/foodlab/miniconda3/envs/anvio-8
+
+  added / updated specs:
+    - samtools
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    samtools-1.3.1             |                0         483 KB  bioconda
+    ------------------------------------------------------------
+                                           Total:         483 KB
+
+The following NEW packages will be INSTALLED:
+
+  samtools           bioconda/osx-64::samtools-1.3.1-0 
+
+
+
+Downloading and Extracting Packages:
+                                                                                                         
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ samtools view -F 4               -bS magdalena.sam               -o magdalena-RAW.bam
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ samtools sort magdalena-RAW.bam -o magdalena.bam
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ samtools index magdalena.bam
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-profile -i magdalena.bam \
+>              -c genome.db \
+>              -o magdalena-profile \
+>              --cluster
+Sample name set ...................................: magdalena                                           
+Description .......................................: None
+Profile DB path ...................................: /Users/foodlab/Downloads/Exercise/metagenomic-read-recruitment-data-pack/magdalena-profile/PROFILE.db
+Contigs DB path ...................................: genome.db
+Contigs DB hash ...................................: hash29618726
+Command line ......................................: /Users/foodlab/miniconda3/envs/anvio-8/bin/anvi-profile -i magdalena.bam -c genome.db -o magdalena-profile --cluster
+
+Minimum percent identity of reads to be profiled ..: None
+Fetch filter engaged ..............................: None
+
+Is merged profile? ................................: False
+Is blank profile? .................................: False
+Skip contigs shorter than .........................: 1,000
+Skip contigs longer than ..........................: 9,223,372,036,854,775,807
+Perform hierarchical clustering of contigs? .......: True
+
+Profile single-nucleotide variants (SNVs)? ........: True
+Profile single-codon variants (SCVs/+SAAVs)? ......: False
+Profile insertion/deletions (INDELs)? .............: True
+Minimum coverage to calculate SNVs ................: 10
+Report FULL variability data? .....................: False
+
+WARNING
+====================================================
+Your minimum contig length is set to 1,000 base pairs. So anvi'o will not take
+into consideration anything below that. If you need to kill this an restart your
+analysis with another minimum contig length value, feel free to press CTRL+C.
+
+Input BAM .........................................: /Users/foodlab/Downloads/Exercise/metagenomic-read-recruitment-data-pack/magdalena.bam
+Output directory path .............................: /Users/foodlab/Downloads/Exercise/metagenomic-read-recruitment-data-pack/magdalena-profile
+
+Number of reads in the BAM file ...................: 1,845,044
+Number of sequences in the contigs DB .............: 1
+Number of contigs to be conisdered (after -M) .....: 1
+Number of splits ..................................: 263
+Number of nucleotides .............................: 5,273,097
+                                                                                                         
+Num SNVs reported .................................: 1,054
+Num INDELs reported ...............................: 1
+                                                                                                         
+Additional data added to the new profile DB .......: total_reads_mapped, num_SNVs_reported,
+                                                     num_INDELs_reported, total_reads_kept
+New items order ...................................: "tnf:euclidean:ward" (type newick) has been added to
+                                                     the database...
+New items order ...................................: "tnf-ab-cov:euclidean:ward" (type newick) has been  
+                                                     added to the database...
+
+* Happy 😇
+
+
+✓ anvi-profile took 0:00:45.183424
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-interactive -c genome.db \
+>                  -p magdalena-profile/PROFILE.db
+Contigs DB ...................................: Initialized: genome.db (v. 21)                           
+Interactive mode .............................: full                                                     
+Auxiliary Data ...............................: Found: magdalena-profile/AUXILIARY-DATA.db (v. 2)        
+Profile Super ................................: Initialized with all 263 splits:
+                                                magdalena-profile/PROFILE.db (v. 38)
+                                                                                                         
+WARNING
+===============================================
+Even though the following layer names were associated with your data, they will
+not be shown in your interactive display since none of the splits you are in
+terested at this point had any hits in those layers: "Ribosomal_RNA_12S,
+Ribosomal_RNA_18S, Ribosomal_RNA_28S, Ribosomal_RNA_5S". If you would like every
+layer to be shown in the interface even when there are nohits, please include
+the flag `--show-all-layers` in your command.
+
+
+* The server is up and running 🎉
+
+WARNING
+===============================================
+If you are using OSX and if the server terminates prematurely before you can see
+anything in your browser, try running the same command by putting 'sudo ' at the
+beginning of it (you will be prompted to enter your password if sudo requires
+super user credentials on your system). If your browser does not show up, try
+manually entering the URL shown below into the address bar of your favorite
+browser. *cough* CHROME *cough*.
+
+
+Server address ...............................: http://0.0.0.0:8081
+
+* When you are ready, press CTRL+C once to terminate the server and go back to the
+  command line.
+
+for person in batuhan alejandra jonas jessika
+do
+    "Working on ${person} ..."
+    bowtie2 -x genome -1 metagenomes/${person}-R1.fastq -2 metagenomes/${person}-R2.fastq -S ${person}.sam
+    samtools view -F 4 -bS ${person}.sam -o ${person}-RAW.bam
+    samtools sort ${person}-RAW.bam -o ${person}.bam
+    samtools index ${person}.bam
+    anvi-profile -i ${person}.bam -c genome.db -o ${person}-profile
+    rm -rf ${person}.sam ${person}-RAW.bam
+done
+
+^C
+* The server is being terminated...
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ for person in batuhan alejandra jonas jessika
+> do
+>     "Working on ${person} ..."
+>     bowtie2 -x genome -1 metagenomes/${person}-R1.fastq -2 metagenomes/${person}-R2.fastq -S ${person}.sam
+>     samtools view -F 4 -bS ${person}.sam -o ${person}-RAW.bam
+>     samtools sort ${person}-RAW.bam -o ${person}.bam
+>     samtools index ${person}.bam
+>     anvi-profile -i ${person}.bam -c genome.db -o ${person}-profile
+>     rm -rf ${person}.sam ${person}-RAW.bam
+> done
+-bash: Working on batuhan ...: command not found
+bash profile.sh
+^C(ERR): bowtie2-align died with signal 2 (INT) 
+[W::sam_read1] parse error at line 299125
+[main_samview] truncated file.
+^C
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ bash profile.sh
+bash: profile.sh: No such file or directory
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ ls
+batuhan-RAW.bam		genome.2.bt2		genome.rev.1.bt2	magdalena.bam.bai
+batuhan.sam		genome.3.bt2		genome.rev.2.bt2	magdalena.sam
+blast-log.txt		genome.4.bt2		magdalena-RAW.bam	metagenomes
+diamond-log-file.txt	genome.db		magdalena-profile
+genome.1.bt2		genome.fa		magdalena.bam
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ cd magdalena-profile/
+(anvio-8) foodlabui-iMac:magdalena-profile foodlab$ bash profile.sh
+bash: profile.sh: No such file or directory
+(anvio-8) foodlabui-iMac:magdalena-profile foodlab$ ls ..
+batuhan-RAW.bam		genome.2.bt2		genome.rev.1.bt2	magdalena.bam.bai
+batuhan.sam		genome.3.bt2		genome.rev.2.bt2	magdalena.sam
+blast-log.txt		genome.4.bt2		magdalena-RAW.bam	metagenomes
+diamond-log-file.txt	genome.db		magdalena-profile
+genome.1.bt2		genome.fa		magdalena.bam
+(anvio-8) foodlabui-iMac:magdalena-profile foodlab$ anvi-interactive -c genome.db                  -p magdalena-profile/PROFILE.db
+                                                                                                         
+
+Config Error: There is nothing at 'genome.db' :/
+
+
+(anvio-8) foodlabui-iMac:magdalena-profile foodlab$ anvi-profile -i magdalena.bam              -c genome.db              -o magdalena-profile              --cluster
+                                                                                                         
+
+File/Path Error: No such file: 'genome.db' :/
+
+
+(anvio-8) foodlabui-iMac:magdalena-profile foodlab$ cd ..
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-profile -i magdalena.bam              -c genome.db              -o magdalena-profile              --cluster
+                                                                                                         
+
+File/Path Error: The output directory '/Users/foodlab/Downloads/Exercise/metagenomic-read-      
+                 recruitment-data-pack/magdalena-profile' already exists (and anvi'o does not   
+                 like overwriting stuff (except when it does (typical anvi'o))). But you can    
+                 always use the flag `--force-overwrite` to assert your dominance. In which case
+                 anvi'o would first remove the existing output directory (a flag that deserves  
+                 extreme caution for obvious reasons).                                          
+
+
+(anvio-8) foodlabui-iMac:metagenomic-read-recruitment-data-pack foodlab$ anvi-interactive -c genome.db                  -p magdalena-profile/PROFILE.db
+Contigs DB ...................................: Initialized: genome.db (v. 21)                           
+Interactive mode .............................: full                                                     
+Auxiliary Data ...............................: Found: magdalena-profile/AUXILIARY-DATA.db (v. 2)        
+Profile Super ................................: Initialized with all 263 splits:
+                                                magdalena-profile/PROFILE.db (v. 38)
+                                                                                                         
+WARNING
+===============================================
+Even though the following layer names were associated with your data, they will
+not be shown in your interactive display since none of the splits you are in
+terested at this point had any hits in those layers: "Ribosomal_RNA_12S,
+Ribosomal_RNA_18S, Ribosomal_RNA_28S, Ribosomal_RNA_5S". If you would like every
+layer to be shown in the interface even when there are nohits, please include
+the flag `--show-all-layers` in your command.
+
+
+* The server is up and running 🎉
+
+WARNING
+===============================================
+If you are using OSX and if the server terminates prematurely before you can see
+anything in your browser, try running the same command by putting 'sudo ' at the
+beginning of it (you will be prompted to enter your password if sudo requires
+super user credentials on your system). If your browser does not show up, try
+manually entering the URL shown below into the address bar of your favorite
+browser. *cough* CHROME *cough*.
+
+
+Server address ...............................: http://0.0.0.0:8081
+
+* When you are ready, press CTRL+C once to terminate the server and go back to the
+  command line.
+
+
