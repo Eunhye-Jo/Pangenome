@@ -1,0 +1,436 @@
+#########################################################################
+#### https://docs.anaconda.com/miniconda/#quick-command-line-install ####
+#### https://anvio.org/install/macos/stable/ ####
+#########################################################################
+
+### (1) Things you need before you start ###
+### Miniconda installation for macOS ###
+
+(base) foodlabui-iMac:~ foodlab$ mkdir -p ~/miniconda3
+(base) foodlabui-iMac:~ foodlab$ curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o ~/miniconda3/miniconda.sh
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  105M  100  105M    0     0  11.0M      0  0:00:09  0:00:09 --:--:-- 11.1M
+(base) foodlabui-iMac:~ foodlab$ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+PREFIX=/Users/foodlab/miniconda3
+Unpacking payload ...
+
+Installing base environment...
+
+Preparing transaction: ...working... done
+Executing transaction: ...working... done
+installation finished.
+(base) foodlabui-iMac:~ foodlab$ rm ~/miniconda3/miniconda.sh
+(base) foodlabui-iMac:~ foodlab$ 
+
+
+### After installing, close and reopen your terminal application or refresh it by running the following command:###
+
+(base) foodlabui-iMac:~ foodlab$ source ~/miniconda3/bin/activate
+(base) foodlabui-iMac:~ foodlab$ conda init --all
+no change     /Users/foodlab/miniconda3/condabin/conda
+no change     /Users/foodlab/miniconda3/bin/conda
+no change     /Users/foodlab/miniconda3/bin/conda-env
+no change     /Users/foodlab/miniconda3/bin/activate
+no change     /Users/foodlab/miniconda3/bin/deactivate
+no change     /Users/foodlab/miniconda3/etc/profile.d/conda.sh
+no change     /Users/foodlab/miniconda3/etc/fish/conf.d/conda.fish
+no change     /Users/foodlab/miniconda3/shell/condabin/Conda.psm1
+no change     /Users/foodlab/miniconda3/shell/condabin/conda-hook.ps1
+no change     /Users/foodlab/miniconda3/lib/python3.12/site-packages/xontrib/conda.xsh
+no change     /Users/foodlab/miniconda3/etc/profile.d/conda.csh
+no change     /Users/foodlab/.bash_profile
+no change     /Users/foodlab/.zshrc
+no change     /Users/foodlab/.config/fish/config.fish
+no change     /Users/foodlab/.xonshrc
+no change     /Users/foodlab/.tcshrc
+No action taken.
+(base) foodlabui-iMac:~ foodlab$ 
+
+
+### (2) Set up conda ###
+(base) foodlabui-iMac:~ foodlab$ date
+2024년 11월 14일 목요일 15시 22분 43초 KST
+
+# Miniconda3 macOS Apple M1 64-bit pkg 다운로드 받아서 설치
+
+(base) foodlabui-iMac:~ foodlab$ conda --version
+conda 24.9.2
+
+### (3) Setup an anvi’o environment ###
+
+# If you are using a computer with Apple silicon (like a M1 or M2 MacBook), you will find that some conda packages are not available (like bioconda packages). To avoid this issue, you can run the following command (only once) before creating the environment:
+(base) foodlabui-iMac:~ foodlab$ conda config --env --set subdir osx-64
+
+(base) foodlabui-iMac:~ foodlab$ conda create -y --name anvio-8 python=3.12
+Channels:
+ - conda-forge
+ - bioconda
+ - defaults
+Platform: osx-64
+Collecting package metadata (repodata.json): done
+Solving environment: failed
+
+LibMambaUnsatisfiableError: Encountered problems while solving:
+  - nothing provides tzdata needed by python-3.12.0-h30d4d87_0_cpython
+
+Could not solve for environment specs
+The following packages are incompatible
+└─ python 3.12**  is not installable because there are no viable options
+   ├─ python [3.12.0|3.12.1|...|3.12.7] would require
+   │  └─ tzdata, which does not exist (perhaps a missing channel);
+   └─ python 3.12.0rc3 would require
+      └─ _python_rc, which does not exist (perhaps a missing channel).
+
+(base) foodlabui-iMac:~ foodlab$ conda create -y --name anvio-8 python=3.10
+Channels:
+ - conda-forge
+ - bioconda
+ - defaults
+Platform: osx-64
+Collecting package metadata (repodata.json): done
+Solving environment: failed
+
+LibMambaUnsatisfiableError: Encountered problems while solving:
+  - nothing provides tzdata needed by python-3.10.0-h1248fe1_1_cpython
+
+Could not solve for environment specs
+The following package could not be installed
+└─ python 3.10**  is not installable because it requires
+   └─ tzdata, which does not exist (perhaps a missing channel).
+
+(base) foodlabui-iMac:~ foodlab$ python --version
+Python 3.12.7
+(base) foodlabui-iMac:~ foodlab$ conda create -y --name anvio-8 python=3.12.7
+Channels:
+ - conda-forge
+ - bioconda
+ - defaults
+Platform: osx-64
+Collecting package metadata (repodata.json): done
+Solving environment: failed
+
+LibMambaUnsatisfiableError: Encountered problems while solving:
+  - nothing provides tzdata needed by python-3.12.7-h8f8b54e_0_cpython
+
+Could not solve for environment specs
+The following package could not be installed
+└─ python 3.12.7**  is not installable because it requires
+   └─ tzdata, which does not exist (perhaps a missing channel).
+
+# 왜 안되는거죠? python version 부분 제외하고 다시 해봄
+
+(base) foodlabui-iMac:envs foodlab$ conda create -y --name anvio-8
+Channels:
+ - conda-forge
+ - bioconda
+ - defaults
+Platform: osx-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/anvio-8
+
+
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate anvio-8
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+
+성공..!!!
+
+
+(base) foodlabui-iMac:envs foodlab$ conda activate anvio-8
+(anvio-8) foodlabui-iMac:envs foodlab$ 
+
+
+(anvio-8) foodlabui-iMac:envs foodlab$ conda install -y -c conda-forge mamba
+Channels:
+ - conda-forge
+ - bioconda
+ - defaults
+Platform: osx-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/anvio-8
+
+  added / updated specs:
+    - mamba
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    bzip2-1.0.8                |       hfdf4475_7         131 KB  conda-forge
+    c-ares-1.34.3              |       hf13058a_0         179 KB  conda-forge
+    ca-certificates-2024.8.30  |       h8857fd0_0         155 KB  conda-forge
+    cpp-expected-1.1.0         |       hb8565cd_0          23 KB  conda-forge
+    fmt-11.0.2                 |       h3c5361c_0         180 KB  conda-forge
+    icu-75.1                   |       h120a0e1_0        11.2 MB  conda-forge
+    krb5-1.21.3                |       h37d8d59_0         1.1 MB  conda-forge
+    libarchive-3.7.4           |       h20e244c_0         725 KB  conda-forge
+    libcurl-8.10.1             |       h58e7537_0         393 KB  conda-forge
+    libcxx-19.1.3              |       hf95d169_0         517 KB  conda-forge
+    libedit-3.1.20191231       |       h0678c8f_2         103 KB  conda-forge
+    libev-4.33                 |       h10d778d_2         104 KB  conda-forge
+    libiconv-1.17              |       hd75f5a5_2         651 KB  conda-forge
+    libmamba-2.0.3             |       hd41e4cc_0         1.4 MB  conda-forge
+    libnghttp2-1.64.0          |       hc7306c3_0         592 KB  conda-forge
+    libsolv-0.7.30             |       h69d5d9b_0         406 KB  conda-forge
+    libssh2-1.11.0             |       hd019ec5_0         253 KB  conda-forge
+    libxml2-2.13.5             |       h495214b_0         595 KB  conda-forge
+    libzlib-1.3.1              |       hd23fc13_2          56 KB  conda-forge
+    lz4-c-1.9.4                |       hf0c8a7f_0         153 KB  conda-forge
+    lzo-2.10                   |    h10d778d_1001         143 KB  conda-forge
+    mamba-2.0.3                |       hcd709ef_0         388 KB  conda-forge
+    ncurses-6.5                |       hf036a51_1         803 KB  conda-forge
+    nlohmann_json-3.11.3       |       hf036a51_1         120 KB  conda-forge
+    openssl-3.4.0              |       hd471939_0         2.5 MB  conda-forge
+    reproc-14.2.4.post0        |       h10d778d_1          32 KB  conda-forge
+    reproc-cpp-14.2.4.post0    |       h93d8f39_1          24 KB  conda-forge
+    simdjson-3.10.1            |       h37c8870_0         224 KB  conda-forge
+    spdlog-1.14.1              |       h325aa07_1         167 KB  conda-forge
+    xz-5.2.6                   |       h775f41a_0         233 KB  conda-forge
+    yaml-cpp-0.8.0             |       he965462_0         127 KB  conda-forge
+    zstd-1.5.6                 |       h915ae27_0         487 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        24.0 MB
+
+The following NEW packages will be INSTALLED:
+
+  bzip2              conda-forge/osx-64::bzip2-1.0.8-hfdf4475_7 
+  c-ares             conda-forge/osx-64::c-ares-1.34.3-hf13058a_0 
+  ca-certificates    conda-forge/osx-64::ca-certificates-2024.8.30-h8857fd0_0 
+  cpp-expected       conda-forge/osx-64::cpp-expected-1.1.0-hb8565cd_0 
+  fmt                conda-forge/osx-64::fmt-11.0.2-h3c5361c_0 
+  icu                conda-forge/osx-64::icu-75.1-h120a0e1_0 
+  krb5               conda-forge/osx-64::krb5-1.21.3-h37d8d59_0 
+  libarchive         conda-forge/osx-64::libarchive-3.7.4-h20e244c_0 
+  libcurl            conda-forge/osx-64::libcurl-8.10.1-h58e7537_0 
+  libcxx             conda-forge/osx-64::libcxx-19.1.3-hf95d169_0 
+  libedit            conda-forge/osx-64::libedit-3.1.20191231-h0678c8f_2 
+  libev              conda-forge/osx-64::libev-4.33-h10d778d_2 
+  libiconv           conda-forge/osx-64::libiconv-1.17-hd75f5a5_2 
+  libmamba           conda-forge/osx-64::libmamba-2.0.3-hd41e4cc_0 
+  libnghttp2         conda-forge/osx-64::libnghttp2-1.64.0-hc7306c3_0 
+  libsolv            conda-forge/osx-64::libsolv-0.7.30-h69d5d9b_0 
+  libssh2            conda-forge/osx-64::libssh2-1.11.0-hd019ec5_0 
+  libxml2            conda-forge/osx-64::libxml2-2.13.5-h495214b_0 
+  libzlib            conda-forge/osx-64::libzlib-1.3.1-hd23fc13_2 
+  lz4-c              conda-forge/osx-64::lz4-c-1.9.4-hf0c8a7f_0 
+  lzo                conda-forge/osx-64::lzo-2.10-h10d778d_1001 
+  mamba              conda-forge/osx-64::mamba-2.0.3-hcd709ef_0 
+  ncurses            conda-forge/osx-64::ncurses-6.5-hf036a51_1 
+  nlohmann_json      conda-forge/osx-64::nlohmann_json-3.11.3-hf036a51_1 
+  openssl            conda-forge/osx-64::openssl-3.4.0-hd471939_0 
+  reproc             conda-forge/osx-64::reproc-14.2.4.post0-h10d778d_1 
+  reproc-cpp         conda-forge/osx-64::reproc-cpp-14.2.4.post0-h93d8f39_1 
+  simdjson           conda-forge/osx-64::simdjson-3.10.1-h37c8870_0 
+  spdlog             conda-forge/osx-64::spdlog-1.14.1-h325aa07_1 
+  xz                 conda-forge/osx-64::xz-5.2.6-h775f41a_0 
+  yaml-cpp           conda-forge/osx-64::yaml-cpp-0.8.0-he965462_0 
+  zstd               conda-forge/osx-64::zstd-1.5.6-h915ae27_0 
+
+
+
+Downloading and Extracting Packages:
+                                                                                                    
+Preparing transaction: done                                                                         
+Verifying transaction: done                                                                         
+Executing transaction: done                                                                         
+(anvio-8) foodlabui-iMac:envs foodlab$                                                              
+
+
+(anvio-8) foodlabui-iMac:envs foodlab$ mamba
+Version: 2.0.3
+
+Usage: mamba [OPTIONS] [SUBCOMMAND]
+
+Options:
+  -h,--help                   Print this help message and exit
+  --version                   
+
+
+Configuration options:
+  --rc-file TEXT ...          Paths to the configuration files to use
+  --no-rc                     Disable the use of configuration files
+  --no-env                    Disable the use of environment variables
+
+
+Global options:
+  -v,--verbose                Set verbosity (higher verbosity with multiple -v, e.g. -vvv)
+  --log-level ENUM:value in {critical->5,debug->1,error->4,info->2,off->6,trace->0,warning->3} OR {5,1,4,2,6,0,3}
+                              Set the log level
+  -q,--quiet                  Set quiet mode (print less output)
+  -y,--yes                    Automatically answer yes on prompted questions
+  --json                      Report all output as json
+  --offline                   Force use cached repodata
+  --dry-run                   Only display what would have been done
+  --download-only             Only download and extract packages, do not link them into environment.
+  --experimental              Enable experimental features
+
+
+Prefix options:
+  -r,--root-prefix TEXT       Path to the root prefix
+  -p,--prefix TEXT            Path to the target prefix
+  --relocate-prefix TEXT      Path to the relocation prefix
+  -n,--name TEXT              Name of the target prefix
+
+Subcommands:
+  shell                       Generate shell init scripts
+  create                      Create new environment
+  install                     Install packages in active environment
+  update                      Update packages in active environment
+  self-update                 Update micromamba
+  repoquery                   Find and analyze packages in active environment or channels
+  remove                      Remove packages from active environment
+  list                        List packages in active environment
+  package                     Extract a package or bundle files into an archive
+  clean                       Clean package cache
+  config                      Configuration of micromamba
+  info                        Information about micromamba
+  constructor                 Commands to support using micromamba in constructor
+  env                         See `mamba/micromamba env --help`
+  activate                    Activate an environment
+  run                         Run an executable in an environment
+  ps                          Show, inspect or kill running processes
+  auth                        Login or logout of a given host
+  search                      Find packages in active environment or channels
+                              This is equivalent to `repoquery search` command
+
+(anvio-8) foodlabui-iMac:envs foodlab$ 
+
+                                                                                                    
+                                                                                                    
+
+
+### (4) Install anvi’o ###      
+
+(anvio-8) foodlabui-iMac:envs foodlab$ curl -L https://github.com/merenlab/anvio/releases/download/v8/anvio-8.tar.gz --output anvio-8.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  235M  100  235M    0     0  10.0M      0  0:00:23  0:00:23 --:--:--  9.8M
+
+(anvio-8) foodlabui-iMac:envs foodlab$ pip install anvio-8.tar.gz
+-bash: pip: command not found
+
+## 왜안돼???
+
+
+(anvio-8) foodlabui-iMac:envs foodlab$ pip install
+-bash: pip: command not found
+(anvio-8) foodlabui-iMac:envs foodlab$ export CC=/usr/bin/clang
+(anvio-8) foodlabui-iMac:envs foodlab$ export CXX=/usr/bin/clang++
+(anvio-8) foodlabui-iMac:envs foodlab$ pip install anvio-8.tar.gz
+-bash: pip: command not found
+(anvio-8) foodlabui-iMac:envs foodlab$ conda install -y -c bioconda pysam
+Channels:
+ - bioconda
+ - conda-forge
+ - defaults
+Platform: osx-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/anvio-8
+
+  added / updated specs:
+    - pysam
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    pysam-0.7.7                |                0         779 KB  bioconda
+    python-1.6                 |                0         3.7 MB  conda-forge
+    zlib-1.3.1                 |       hd23fc13_2          86 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:         4.5 MB
+
+The following NEW packages will be INSTALLED:
+
+  pysam              bioconda/osx-64::pysam-0.7.7-0 
+  python             conda-forge/osx-64::python-1.6-0 
+  zlib               conda-forge/osx-64::zlib-1.3.1-hd23fc13_2 
+
+
+
+Downloading and Extracting Packages:
+                                                                                                    
+Preparing transaction: done                                                                         
+Verifying transaction: done                                                                         
+Executing transaction: done
+
+
+(anvio-8) foodlabui-iMac:envs foodlab$ pip install anvio-8.tar.gz
+-bash: pip: command not found
+(anvio-8) foodlabui-iMac:envs foodlab$ 
+
+잉???
+데스크탑 설정에서 '기본 웹 브라우저'를 Safari 에서 Google Chrome 으로 변경
+
+
+(base) foodlabui-iMac:~ foodlab$ conda config --env --set subdir osx-64
+(base) foodlabui-iMac:~ foodlab$ conda create -y --name anvio-8 
+Channels:
+ - conda-forge
+ - bioconda
+ - defaults
+Platform: osx-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/anvio-8
+
+
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate anvio-8
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+(base) foodlabui-iMac:~ foodlab$ conda activate anvio-8
+(anvio-8) foodlabui-iMac:~ foodlab$ pip install
+-bash: pip: command not found
+(anvio-8) foodlabui-iMac:~ foodlab$ 
+
+# 왜 anvio-8에서 pip 가 안될까 어떻게 해야되는거니 
+
+
+
+
+
+
+
+
+
+
+
