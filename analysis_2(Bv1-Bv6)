@@ -425,6 +425,351 @@ Executing transaction: done
 # 왜 anvio-8에서 pip 가 안될까 어떻게 해야되는거니 
 
 
+### (5) Common problems ###
+
+(anvio-8) foodlabui-iMac:~ foodlab$ conda install -y -c bioconda pysam
+Channels:
+ - bioconda
+ - conda-forge
+ - defaults
+Platform: osx-64
+Collecting package metadata (repodata.json): \ 
+done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /opt/miniconda3/envs/anvio-8
+
+  added / updated specs:
+    - pysam
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    libdeflate-1.21            |       hfdf4475_0          69 KB  conda-forge
+    pysam-0.22.1               |   py38hc0c3774_2         3.9 MB  bioconda
+    ------------------------------------------------------------
+                                           Total:         4.0 MB
+
+The following NEW packages will be INSTALLED:
+
+  libdeflate         conda-forge/osx-64::libdeflate-1.21-hfdf4475_0 
+  libffi             conda-forge/osx-64::libffi-3.4.2-h0d85af4_5 
+  libsqlite          conda-forge/osx-64::libsqlite-3.47.0-h2f8c449_1 
+  pip                conda-forge/osx-64::pip-20.0.2-py38_1 
+  pysam              bioconda/osx-64::pysam-0.22.1-py38hc0c3774_2 
+  python             conda-forge/osx-64::python-3.8.20-h4f978b9_2_cpython 
+  python_abi         conda-forge/osx-64::python_abi-3.8-5_cp38 
+  readline           conda-forge/osx-64::readline-8.2-h9e318b2_1 
+  setuptools         conda-forge/osx-64::setuptools-65.3.0-py38h50d1736_0 
+  tk                 conda-forge/osx-64::tk-8.6.13-h1abcd95_1 
+  wheel              conda-forge/osx-64::wheel-0.34.2-py38_0 
+
+
+
+Downloading and Extracting Packages:
+                                                                                                                    
+Preparing transaction: done                                                                                         
+Verifying transaction: done
+Executing transaction: done
+(anvio-8) foodlabui-iMac:~ foodlab$ 
+(anvio-8) foodlabui-iMac:~ foodlab$ pip install anvio-8.tar.gz
+
+Processing ./anvio-8.tar.gz
+Collecting numpy<=1.24
+  Downloading numpy-1.24.0-cp38-cp38-macosx_10_9_x86_64.whl (19.8 MB)
+     |████████████████████████████████| 19.8 MB 10.5 MB/s 
+Collecting scipy
+  Downloading scipy-1.10.1-cp38-cp38-macosx_10_9_x86_64.whl (35.0 MB)
+     |████████████████████████████████| 35.0 MB 12.7 MB/s 
+Collecting bottle
+  Downloading bottle-0.13.2-py2.py3-none-any.whl (104 kB)
+     |████████████████████████████████| 104 kB 12.4 MB/s 
+Requirement already satisfied: pysam in /opt/miniconda3/envs/anvio-8/lib/python3.8/site-packages (from anvio==8) (0.22.1)
+Collecting ete3
+  Using cached ete3-3.1.3.tar.gz (4.8 MB)
+Collecting scikit-learn==1.2.2
+  Downloading scikit_learn-1.2.2-cp38-cp38-macosx_10_9_x86_64.whl (9.0 MB)
+     |████████████████████████████████| 9.0 MB 10.8 MB/s 
+Collecting django
+  Downloading Django-4.2.16-py3-none-any.whl (8.0 MB)
+     |████████████████████████████████| 8.0 MB 11.1 MB/s 
+Collecting requests
+  Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+     |████████████████████████████████| 64 kB 9.9 MB/s 
+Collecting mistune
+  Using cached mistune-3.0.2-py3-none-any.whl (47 kB)
+Collecting six
+  Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Collecting matplotlib
+  Downloading matplotlib-3.7.5-cp38-cp38-macosx_10_12_x86_64.whl (7.4 MB)
+     |████████████████████████████████| 7.4 MB 11.0 MB/s 
+Collecting statsmodels
+  Downloading statsmodels-0.14.1-cp38-cp38-macosx_10_9_x86_64.whl (10.5 MB)
+     |████████████████████████████████| 10.5 MB 16.0 MB/s 
+Collecting colored
+  Downloading colored-1.4.4.tar.gz (36 kB)
+Collecting illumina-utils
+  Downloading illumina-utils-2.13.tar.gz (2.3 MB)
+     |████████████████████████████████| 2.3 MB 11.4 MB/s 
+Collecting tabulate
+  Using cached tabulate-0.9.0-py3-none-any.whl (35 kB)
+Collecting rich-argparse
+  Downloading rich_argparse-1.6.0-py3-none-any.whl (20 kB)
+Collecting numba
+  Downloading numba-0.58.1-cp38-cp38-macosx_10_9_x86_64.whl (2.6 MB)
+     |████████████████████████████████| 2.6 MB 10.5 MB/s 
+Collecting paste
+  Downloading Paste-3.10.1-py3-none-any.whl (289 kB)
+     |████████████████████████████████| 289 kB 10.4 MB/s 
+Collecting pyani
+  Using cached pyani-0.2.12-py3-none-any.whl (59 kB)
+Collecting psutil
+  Downloading psutil-6.1.0-cp36-abi3-macosx_10_9_x86_64.whl (247 kB)
+     |████████████████████████████████| 247 kB 11.0 MB/s 
+Collecting pandas==1.4.4
+  Downloading pandas-1.4.4-cp38-cp38-macosx_10_9_x86_64.whl (11.4 MB)
+     |████████████████████████████████| 11.4 MB 757 kB/s 
+Collecting snakemake
+  Using cached snakemake-7.32.4.tar.gz (371 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+    Preparing wheel metadata ... done
+Collecting multiprocess
+  Downloading multiprocess-0.70.17-py38-none-any.whl (132 kB)
+     |████████████████████████████████| 132 kB 11.0 MB/s 
+Collecting plotext
+  Downloading plotext-5.3.2-py3-none-any.whl (64 kB)
+     |████████████████████████████████| 64 kB 7.8 MB/s 
+Collecting networkx
+  Downloading networkx-3.1-py3-none-any.whl (2.1 MB)
+     |████████████████████████████████| 2.1 MB 11.0 MB/s 
+Collecting threadpoolctl>=2.0.0
+  Downloading threadpoolctl-3.5.0-py3-none-any.whl (18 kB)
+Collecting joblib>=1.1.1
+  Downloading joblib-1.4.2-py3-none-any.whl (301 kB)
+     |████████████████████████████████| 301 kB 10.8 MB/s 
+Collecting asgiref<4,>=3.6.0
+  Downloading asgiref-3.8.1-py3-none-any.whl (23 kB)
+Collecting backports.zoneinfo; python_version < "3.9"
+  Downloading backports.zoneinfo-0.2.1-cp38-cp38-macosx_10_14_x86_64.whl (35 kB)
+Collecting sqlparse>=0.3.1
+  Downloading sqlparse-0.5.2-py3-none-any.whl (44 kB)
+     |████████████████████████████████| 44 kB 7.9 MB/s 
+Collecting urllib3<3,>=1.21.1
+  Downloading urllib3-2.2.3-py3-none-any.whl (126 kB)
+     |████████████████████████████████| 126 kB 12.0 MB/s 
+Collecting certifi>=2017.4.17
+  Downloading certifi-2024.8.30-py3-none-any.whl (167 kB)
+     |████████████████████████████████| 167 kB 11.3 MB/s 
+Collecting idna<4,>=2.5
+  Downloading idna-3.10-py3-none-any.whl (70 kB)
+     |████████████████████████████████| 70 kB 10.8 MB/s 
+Collecting charset-normalizer<4,>=2
+  Downloading charset_normalizer-3.4.0-cp38-cp38-macosx_10_9_x86_64.whl (124 kB)
+     |████████████████████████████████| 124 kB 10.9 MB/s 
+Collecting importlib-resources>=3.2.0; python_version < "3.10"
+  Downloading importlib_resources-6.4.5-py3-none-any.whl (36 kB)
+Collecting packaging>=20.0
+  Downloading packaging-24.2-py3-none-any.whl (65 kB)
+     |████████████████████████████████| 65 kB 9.1 MB/s 
+Collecting kiwisolver>=1.0.1
+  Downloading kiwisolver-1.4.7-cp38-cp38-macosx_10_9_x86_64.whl (65 kB)
+     |████████████████████████████████| 65 kB 9.1 MB/s 
+Collecting contourpy>=1.0.1
+  Downloading contourpy-1.1.1-cp38-cp38-macosx_10_9_x86_64.whl (247 kB)
+     |████████████████████████████████| 247 kB 10.8 MB/s 
+Collecting pillow>=6.2.0
+  Downloading pillow-10.4.0-cp38-cp38-macosx_10_10_x86_64.whl (3.5 MB)
+     |████████████████████████████████| 3.5 MB 10.5 MB/s 
+Collecting pyparsing>=2.3.1
+  Downloading pyparsing-3.1.4-py3-none-any.whl (104 kB)
+     |████████████████████████████████| 104 kB 12.3 MB/s 
+Collecting cycler>=0.10
+  Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Collecting fonttools>=4.22.0
+  Downloading fonttools-4.55.0-cp38-cp38-macosx_10_9_x86_64.whl (2.3 MB)
+     |████████████████████████████████| 2.3 MB 11.1 MB/s 
+Collecting python-dateutil>=2.7
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+     |████████████████████████████████| 229 kB 12.0 MB/s 
+Collecting patsy>=0.5.4
+  Downloading patsy-1.0.1-py2.py3-none-any.whl (232 kB)
+     |████████████████████████████████| 232 kB 12.0 MB/s 
+Collecting python-Levenshtein
+  Downloading python_Levenshtein-0.25.1-py3-none-any.whl (9.4 kB)
+Collecting rich>=11.0.0
+  Downloading rich-13.9.4-py3-none-any.whl (242 kB)
+     |████████████████████████████████| 242 kB 11.7 MB/s 
+Collecting importlib-metadata; python_version < "3.9"
+  Downloading importlib_metadata-8.5.0-py3-none-any.whl (26 kB)
+Collecting llvmlite<0.42,>=0.41.0dev0
+  Downloading llvmlite-0.41.1-cp38-cp38-macosx_10_9_x86_64.whl (31.0 MB)
+     |████████████████████████████████| 31.0 MB 10.8 MB/s 
+Requirement already satisfied: setuptools in /opt/miniconda3/envs/anvio-8/lib/python3.8/site-packages (from paste->anvio==8) (65.3.0)
+Collecting seaborn
+  Downloading seaborn-0.13.2-py3-none-any.whl (294 kB)
+     |████████████████████████████████| 294 kB 11.1 MB/s 
+Collecting biopython
+  Downloading biopython-1.83-cp38-cp38-macosx_10_9_x86_64.whl (2.7 MB)
+     |████████████████████████████████| 2.7 MB 11.0 MB/s 
+Collecting pytz>=2020.1
+  Downloading pytz-2024.2-py2.py3-none-any.whl (508 kB)
+     |████████████████████████████████| 508 kB 11.9 MB/s 
+Collecting nbformat
+  Downloading nbformat-5.10.4-py3-none-any.whl (78 kB)
+     |████████████████████████████████| 78 kB 12.6 MB/s 
+Collecting jinja2<4.0,>=3.0
+  Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
+     |████████████████████████████████| 133 kB 11.0 MB/s 
+Collecting datrie
+  Downloading datrie-0.8.2-cp38-cp38-macosx_10_9_x86_64.whl (157 kB)
+     |████████████████████████████████| 157 kB 11.0 MB/s 
+Collecting reretry
+  Using cached reretry-0.11.8-py2.py3-none-any.whl (5.6 kB)
+Collecting gitpython
+  Downloading GitPython-3.1.43-py3-none-any.whl (207 kB)
+     |████████████████████████████████| 207 kB 11.4 MB/s 
+Collecting wrapt
+  Downloading wrapt-1.16.0-cp38-cp38-macosx_10_9_x86_64.whl (37 kB)
+Collecting stopit
+  Using cached stopit-1.1.2.tar.gz (18 kB)
+Collecting appdirs
+  Using cached appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+Collecting throttler
+  Using cached throttler-1.2.2-py3-none-any.whl (7.6 kB)
+Collecting humanfriendly
+  Using cached humanfriendly-10.0-py2.py3-none-any.whl (86 kB)
+Collecting configargparse
+  Using cached ConfigArgParse-1.7-py3-none-any.whl (25 kB)
+Collecting pyyaml
+  Downloading PyYAML-6.0.2-cp38-cp38-macosx_10_9_x86_64.whl (183 kB)
+     |████████████████████████████████| 183 kB 11.2 MB/s 
+Collecting yte<2.0,>=1.5.1
+  Downloading yte-1.5.4-py3-none-any.whl (7.7 kB)
+Collecting jsonschema
+  Downloading jsonschema-4.23.0-py3-none-any.whl (88 kB)
+     |████████████████████████████████| 88 kB 10.8 MB/s 
+Collecting toposort>=1.10
+  Using cached toposort-1.10-py3-none-any.whl (8.5 kB)
+Collecting connection-pool>=0.0.3
+  Using cached connection_pool-0.0.3.tar.gz (3.8 kB)
+Collecting smart-open>=3.0
+  Downloading smart_open-7.0.5-py3-none-any.whl (61 kB)
+     |████████████████████████████████| 61 kB 10.8 MB/s 
+Collecting pulp>=2.0
+  Downloading PuLP-2.9.0-py3-none-any.whl (17.7 MB)
+     |████████████████████████████████| 17.7 MB 11.5 MB/s 
+Collecting docutils
+  Using cached docutils-0.20.1-py3-none-any.whl (572 kB)
+Collecting dill>=0.3.9
+  Downloading dill-0.3.9-py3-none-any.whl (119 kB)
+     |████████████████████████████████| 119 kB 11.1 MB/s 
+Collecting typing-extensions>=4; python_version < "3.11"
+  Downloading typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+Collecting zipp>=3.1.0; python_version < "3.10"
+  Downloading zipp-3.20.2-py3-none-any.whl (9.2 kB)
+Collecting Levenshtein==0.25.1
+  Downloading Levenshtein-0.25.1-cp38-cp38-macosx_10_9_x86_64.whl (135 kB)
+     |████████████████████████████████| 135 kB 11.0 MB/s 
+Collecting pygments<3.0.0,>=2.13.0
+  Downloading pygments-2.18.0-py3-none-any.whl (1.2 MB)
+     |████████████████████████████████| 1.2 MB 11.0 MB/s 
+Collecting markdown-it-py>=2.2.0
+  Using cached markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+Collecting fastjsonschema>=2.15
+  Downloading fastjsonschema-2.20.0-py3-none-any.whl (23 kB)
+Collecting jupyter-core!=5.0.*,>=4.12
+  Downloading jupyter_core-5.7.2-py3-none-any.whl (28 kB)
+Collecting traitlets>=5.1
+  Downloading traitlets-5.14.3-py3-none-any.whl (85 kB)
+     |████████████████████████████████| 85 kB 8.3 MB/s 
+Collecting MarkupSafe>=2.0
+  Downloading MarkupSafe-2.1.5-cp38-cp38-macosx_10_9_x86_64.whl (14 kB)
+Collecting gitdb<5,>=4.0.1
+  Using cached gitdb-4.0.11-py3-none-any.whl (62 kB)
+Collecting dpath<3.0,>=2.1
+  Downloading dpath-2.2.0-py3-none-any.whl (17 kB)
+Collecting plac<2.0.0,>=1.3.4
+  Downloading plac-1.4.3-py2.py3-none-any.whl (22 kB)
+Collecting pkgutil-resolve-name>=1.3.10; python_version < "3.9"
+  Downloading pkgutil_resolve_name-1.3.10-py3-none-any.whl (4.7 kB)
+Collecting jsonschema-specifications>=2023.03.6
+  Downloading jsonschema_specifications-2023.12.1-py3-none-any.whl (18 kB)
+Collecting rpds-py>=0.7.1
+  Downloading rpds_py-0.20.1-cp38-cp38-macosx_10_12_x86_64.whl (327 kB)
+     |████████████████████████████████| 327 kB 10.6 MB/s 
+Collecting attrs>=22.2.0
+  Downloading attrs-24.2.0-py3-none-any.whl (63 kB)
+     |████████████████████████████████| 63 kB 6.8 MB/s 
+Collecting referencing>=0.28.4
+  Downloading referencing-0.35.1-py3-none-any.whl (26 kB)
+Collecting rapidfuzz<4.0.0,>=3.8.0
+  Downloading rapidfuzz-3.9.7-cp38-cp38-macosx_10_9_x86_64.whl (2.1 MB)
+     |████████████████████████████████| 2.1 MB 10.7 MB/s 
+Collecting mdurl~=0.1
+  Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Collecting platformdirs>=2.5
+  Downloading platformdirs-4.3.6-py3-none-any.whl (18 kB)
+Collecting smmap<6,>=3.0.1
+  Using cached smmap-5.0.1-py3-none-any.whl (24 kB)
+Building wheels for collected packages: anvio, ete3, colored, illumina-utils, snakemake, stopit, connection-pool
+  Building wheel for anvio (setup.py) ... done
+  Created wheel for anvio: filename=anvio-8-py3-none-any.whl size=249070814 sha256=6ce834ba84d3f9c2fed812d1cb8728b724ddb75370c28413d504cb4e36fea593
+  Stored in directory: /Users/foodlab/Library/Caches/pip/wheels/24/77/73/3fca8a6aa80c5a6b0ff4d4ad7a53e3b942ab958bec29784ac2
+  Building wheel for ete3 (setup.py) ... done
+  Created wheel for ete3: filename=ete3-3.1.3-py3-none-any.whl size=2273785 sha256=410af62c33148ef708c31718e3acb239ccb180d47ce5038c4d0f8817793963fc
+  Stored in directory: /Users/foodlab/Library/Caches/pip/wheels/d4/56/47/60cad123d3de245a181b21bc302114dd7caf298c4b8f5a0b6a
+  Building wheel for colored (setup.py) ... done
+  Created wheel for colored: filename=colored-1.4.4-py3-none-any.whl size=14249 sha256=7b40358cd14cd3f7a33a51c4aabd37f671025707e402fffc4caa6644d49dc700
+  Stored in directory: /Users/foodlab/Library/Caches/pip/wheels/6b/1d/d8/57b7135b55f8edab11eef771777a2ca4665f922f012f71c77b
+  Building wheel for illumina-utils (setup.py) ... done
+  Created wheel for illumina-utils: filename=illumina_utils-2.13-py3-none-any.whl size=79945 sha256=c8131306885c69cc6a201882486c19e766bca5b79902e21a17dd77b50cd1400d
+  Stored in directory: /Users/foodlab/Library/Caches/pip/wheels/a2/23/c6/13941f6e2fa18826cbf039609c4a149e59fa9146e1af614fed
+  Building wheel for snakemake (PEP 517) ... done
+  Created wheel for snakemake: filename=snakemake-7.32.4-py3-none-any.whl size=382339 sha256=903d77ebb235f50ca23abda8187493a77aa91ec46567f9160aef533ea2e33393
+  Stored in directory: /Users/foodlab/Library/Caches/pip/wheels/50/3f/4e/094b223df02c0975edc368e1e05b3b5b6c9de54fca89faa49a
+  Building wheel for stopit (setup.py) ... done
+  Created wheel for stopit: filename=stopit-1.1.2-py3-none-any.whl size=11939 sha256=3e28aed19b43d5764cbc1796d321d7b331af148a90eb2ace9f93ce735e1f499b
+  Stored in directory: /Users/foodlab/Library/Caches/pip/wheels/a8/bb/8f/6b9328d23c2dcedbfeb8498b9f650d55d463089e3b8fc0bfb2
+  Building wheel for connection-pool (setup.py) ... done
+  Created wheel for connection-pool: filename=connection_pool-0.0.3-py3-none-any.whl size=4064 sha256=5e4f3d55bc372c6101ec02c58f625a8cb46f84629035827c06c3fba0d2d05d56
+  Stored in directory: /Users/foodlab/Library/Caches/pip/wheels/0a/98/19/7c3152e8ffe9a430f80fd866c4d2b16b3945dc4ebb26961ec0
+Successfully built anvio ete3 colored illumina-utils snakemake stopit connection-pool
+ERROR: seaborn 0.13.2 has requirement numpy!=1.24.0,>=1.20, but you'll have numpy 1.24.0 which is incompatible.
+Installing collected packages: numpy, scipy, bottle, ete3, threadpoolctl, joblib, scikit-learn, typing-extensions, asgiref, backports.zoneinfo, sqlparse, django, urllib3, certifi, idna, charset-normalizer, requests, mistune, six, zipp, importlib-resources, packaging, kiwisolver, contourpy, pillow, pyparsing, cycler, fonttools, python-dateutil, matplotlib, pytz, pandas, patsy, statsmodels, colored, rapidfuzz, Levenshtein, python-Levenshtein, illumina-utils, tabulate, pygments, mdurl, markdown-it-py, rich, rich-argparse, importlib-metadata, llvmlite, numba, paste, seaborn, biopython, pyani, psutil, fastjsonschema, traitlets, platformdirs, jupyter-core, pkgutil-resolve-name, rpds-py, attrs, referencing, jsonschema-specifications, jsonschema, nbformat, MarkupSafe, jinja2, datrie, reretry, smmap, gitdb, gitpython, wrapt, stopit, appdirs, throttler, humanfriendly, configargparse, pyyaml, dpath, plac, yte, toposort, connection-pool, smart-open, pulp, docutils, snakemake, dill, multiprocess, plotext, networkx, anvio
+Successfully installed Levenshtein-0.25.1 MarkupSafe-2.1.5 anvio-8 appdirs-1.4.4 asgiref-3.8.1 attrs-24.2.0 backports.zoneinfo-0.2.1 biopython-1.83 bottle-0.13.2 certifi-2024.8.30 charset-normalizer-3.4.0 colored-1.4.4 configargparse-1.7 connection-pool-0.0.3 contourpy-1.1.1 cycler-0.12.1 datrie-0.8.2 dill-0.3.9 django-4.2.16 docutils-0.20.1 dpath-2.2.0 ete3-3.1.3 fastjsonschema-2.20.0 fonttools-4.55.0 gitdb-4.0.11 gitpython-3.1.43 humanfriendly-10.0 idna-3.10 illumina-utils-2.13 importlib-metadata-8.5.0 importlib-resources-6.4.5 jinja2-3.1.4 joblib-1.4.2 jsonschema-4.23.0 jsonschema-specifications-2023.12.1 jupyter-core-5.7.2 kiwisolver-1.4.7 llvmlite-0.41.1 markdown-it-py-3.0.0 matplotlib-3.7.5 mdurl-0.1.2 mistune-3.0.2 multiprocess-0.70.17 nbformat-5.10.4 networkx-3.1 numba-0.58.1 numpy-1.24.0 packaging-24.2 pandas-1.4.4 paste-3.10.1 patsy-1.0.1 pillow-10.4.0 pkgutil-resolve-name-1.3.10 plac-1.4.3 platformdirs-4.3.6 plotext-5.3.2 psutil-6.1.0 pulp-2.9.0 pyani-0.2.12 pygments-2.18.0 pyparsing-3.1.4 python-Levenshtein-0.25.1 python-dateutil-2.9.0.post0 pytz-2024.2 pyyaml-6.0.2 rapidfuzz-3.9.7 referencing-0.35.1 requests-2.32.3 reretry-0.11.8 rich-13.9.4 rich-argparse-1.6.0 rpds-py-0.20.1 scikit-learn-1.2.2 scipy-1.10.1 seaborn-0.13.2 six-1.16.0 smart-open-7.0.5 smmap-5.0.1 snakemake-7.32.4 sqlparse-0.5.2 statsmodels-0.14.1 stopit-1.1.2 tabulate-0.9.0 threadpoolctl-3.5.0 throttler-1.2.2 toposort-1.10 traitlets-5.14.3 typing-extensions-4.12.2 urllib3-2.2.3 wrapt-1.16.0 yte-1.5.4 zipp-3.20.2
+(anvio-8) foodlabui-iMac:~ foodlab$ 
+
+# 너무 어이 없게 해결됨.. 엉엉..
+
+
+### (6) Check your installation ###
+
+(anvio-8) foodlabui-iMac:~ foodlab$ anvi-self-test --suite mini
+
+========================================================
+🦄 SOMETHING BAD HAPPENED AND IT NEEDS YOUR ATTENTION 🦄
+========================================================
+The environment in which you're running anvi'o has a Python 
+version that is not compatible with the Python version 
+requirement of anvi'o you are running. Here is a summary: 
+
+    Anvi'o version you have ..............: 8 (marie)
+    Python version you have ..............: 3.8.20
+    Python version anvi'o wants ..........: 3.10.*
+
+This should never have happened with a stable anvi'o release :/ 
+Please follow the most up-to-date installation instructions at 
+https://anvio.org/install/ to re-install anvi'o and its environment.
+
+(anvio-8) foodlabui-iMac:~ foodlab$ 
+
+# 하.. 감동...
+
 
 
 
